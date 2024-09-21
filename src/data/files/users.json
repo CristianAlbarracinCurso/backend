@@ -1,0 +1,44 @@
+[
+  {
+    "name": "cristian",
+    "email": "1@coder.com",
+    "password": "1234",
+    "role": "admin",
+    "id": "2ccef4588786603a9ebd02b6"
+  },
+  {
+    "name": "juli",
+    "email": "jule@coder.com",
+    "password": "1234",
+    "role": "user",
+    "id": "020a6e9b8323a2f8c6f98f15"
+  },
+  {
+    "name": "igna",
+    "email": "igna@coder.com",
+    "password": "1234",
+    "role": "user",
+    "id": "c26940b3cd637fa4d4088a3d"
+  },
+  {
+    "name": "matias",
+    "email": "matias@coder.com",
+    "password": "1234",
+    "role": "user",
+    "id": "a4970acb68a2bd821c26788d"
+  },
+  {
+    "name": "nico",
+    "email": "nico@coder.com",
+    "password": "1234",
+    "role": "admin",
+    "id": "d33f97847f07744e326d5e3c"
+  },
+  {
+    "name": "colo",
+    "email": "colo@coder.com",
+    "password": "1234",
+    "role": "user",
+    "id": "10d2ad3fa3ef4084d484ae59"
+  }
+]

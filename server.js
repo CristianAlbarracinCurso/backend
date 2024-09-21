@@ -1,0 +1,10 @@
+import express from "express";
+import userControllers from "./src/controllers/users.controllers.js";
+const server = express();
+const port = 8000;
+const ready = () => console.log(`server is running on port ${port}`);
+server.listen(port, ready);
+server.use(express.urlencoded({ extended: true }));
+server.use(express.json());
+server.get("/api/users", userControllers.readUsers);
+server.post("/api/users", userControllers.createUser);
