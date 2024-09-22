@@ -4,12 +4,9 @@ import { readAll, createUser } from "../../controllers/users.controllers.js";
 const usersRouter = Router();
 
 usersRouter.get("/", readAll);
-
-//productsRouter.get("/:pid", getProduct);
-
+//usersRouter.get("/:pid", getUser);
 usersRouter.post("/", createUser);
-
-//productsRouter.put("/:pid", updateProduct);
-//productsRouter.delete("/:pid", destroyProduct);
+//usersRouter.put("/:pid", updateUser);
+//usersRouter.delete("/:pid", destroyUser);
 
 export default usersRouter;

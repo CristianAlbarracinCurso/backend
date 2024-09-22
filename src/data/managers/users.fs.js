@@ -1,7 +1,7 @@
 import fs from "fs";
 import crypto from "crypto";
 
-class usersManager {
+class UsersManager {
   constructor(path) {
     this.path = path;
     this.exists();
@@ -90,5 +90,5 @@ class usersManager {
 
 }
 
-const usersManagers = new usersManager("./src/data/files/users.json");
+const usersManagers = new UsersManager("./src/data/files/users.json");
 export default usersManagers;

@@ -7,7 +7,6 @@ import {
   destroyProduct,
 } from "../../controllers/products.controllers.js";
 
-
 const productsRouter = Router();
 
 productsRouter.get("/", getAllProducts);
