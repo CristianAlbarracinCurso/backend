@@ -1,0 +1,24 @@
+[
+  {
+    "category": "moto1",
+    "supplier": "motomel1",
+    "id": "22f1740717acff1a9dd79445",
+    "title": "motox",
+    "description": "una moto1",
+    "code": "01011",
+    "price": "120000001",
+    "stock": "1001"
+  },
+  {
+    "title": "moto",
+    "description": "una moto",
+    "code": "0101",
+    "price": "12000000",
+    "statusProduct": "True",
+    "stock": "100",
+    "category": "moto",
+    "thumbnails": "none",
+    "supplier": "motomel",
+    "id": "57a9e3ce45273c30d8a766aa"
+  }
+]

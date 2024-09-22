@@ -40,5 +40,19 @@
     "password": "1234",
     "role": "user",
     "id": "10d2ad3fa3ef4084d484ae59"
+  },
+  {
+    "name": "colo",
+    "email": "colo@coder.com",
+    "password": "1234",
+    "role": "user",
+    "id": "743ba177b142058018949bcc"
+  },
+  {
+    "name": "jose",
+    "email": "7@coder.com",
+    "password": "1234",
+    "role": "user",
+    "id": "e038b09c1db2ffc53a8dfbd4"
   }
 ]
