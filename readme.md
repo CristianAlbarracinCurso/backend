@@ -12,6 +12,7 @@ Esta es una API simple de e-commerce desarrollada con Node.js y Express, que per
 - Persistencia de datos en archivos JSON
 ## Estructura de Archivos
 
+```
 ├──public
 │  ├── img
 │  └── imgProducts
@@ -38,6 +39,7 @@ Esta es una API simple de e-commerce desarrollada con Node.js y Express, que per
 ├── server.js
 ├── utils.js
 └── README.md
+```
 ## Instalacion
 
 - Clona este repositorio:
