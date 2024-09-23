@@ -37,6 +37,7 @@ async function getProduct(req, res, next) {
   }
 }
 
+//Falta verificar si un title ya existe para no crear dos veces el mismo producto
 async function createProduct(req, res, next) {
   try {
     const { title, description, code, price, stock, category, supplier } =
@@ -63,7 +64,7 @@ async function createProduct(req, res, next) {
     }
     if (!statusProduct) {
       statusProduct = "True";
-    } 
+    }
 
     const response = await productsManager.create({
       title,

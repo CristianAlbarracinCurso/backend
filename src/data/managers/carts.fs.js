@@ -48,6 +48,26 @@ class CartsManager {
       throw error;
     }
   }
+
+  async update(id, newData) {
+    try {
+      const all = await this.readAll();
+      const index = all.findIndex((each) => each.id === id);
+
+      if (index === -1) {
+        throw new Error(`Cart with ID ${id} not found`);
+      }
+
+      all[index] = { ...all[index], ...newData };
+
+      const stringAll = JSON.stringify(all, null, 2);
+      await fs.promises.writeFile(this.path, stringAll);
+
+      return all[index];
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 const cartsManager = new CartsManager("./src/data/files/carts.json");

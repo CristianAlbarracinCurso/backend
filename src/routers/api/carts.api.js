@@ -9,6 +9,6 @@ const cartsApiRouter = Router();
 
 cartsApiRouter.post("/", createCarts);
 cartsApiRouter.get("/:cid", getCartProducts);
-cartsApiRouter.post("/:cid/product/:pid", addCartProducts);
+cartsApiRouter.post("/:cid/:pid/:quantity", addCartProducts);
 
 export default cartsApiRouter;
