@@ -79,17 +79,18 @@ PUT /api/products/:pid =>"Actualiza un producto por ID."
 DELETE /api/products/:pid =>"Borraun producto por ID."
 
 - Carts
+
 POST /api/carts =>"Crear un nuevo carrito."
 
 POST /api/carts/:cid/:pid/:quantity =>"Agregar un producto a un carrito por ID con una cantidad personalizada."
 
 GET /api/carts/:cid =>"Obtener los productos de un carrito por ID."
 ## Tecnologias Utilizadas
-Node.js
-Express
-Sistema de archivos (File System)
-JSON para persistencia de datos
+- Node.js
+- Express
+- Sistema de archivos (File System)
+- JSON para persistencia de datos
 ## Proximamente
-Integración de una base de datos real (MongoDB)
-Autenticación y autorización para usuarios
-Validación más robusta de las entradas de datos
+- Integración de una base de datos real (MongoDB)
+- Autenticación y autorización para usuarios
+- Validación más robusta de las entradas de datos

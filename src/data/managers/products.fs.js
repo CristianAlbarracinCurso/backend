@@ -10,9 +10,9 @@ class ProductsManager {
     const exist = fs.existsSync(this.path);
     if (!exist) {
       fs.writeFileSync(this.path, JSON.stringify([]));
-      console.log("file created");
+      console.log("products file created");
     } else {
-      console.log("file already exists");
+      console.log("products file already exists");
     }
   }
   async readAll(category) {

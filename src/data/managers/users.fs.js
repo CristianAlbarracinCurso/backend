@@ -12,7 +12,7 @@ class UsersManager {
       fs.writeFileSync(this.path, JSON.stringify([]));
       console.log("users file created");
     } else {
-      console.log("users file exists");
+      console.log("users file already exists");
     }
   }
   async readAll(role) {
@@ -60,7 +60,6 @@ class UsersManager {
       if (index === -1) {
         return null;
       }
-      // Actualizamos el usuario
       all[index] = { ...all[index], ...newData };
       const stringAll = JSON.stringify(all, null, 2);
       await fs.promises.writeFile(this.path, stringAll);
@@ -81,13 +80,11 @@ class UsersManager {
       const stringAll = JSON.stringify(filteredUsers, null, 2);
       await fs.promises.writeFile(this.path, stringAll);
       return `User with id ${id} deleted`;
-     
     } catch (error) {
       console.log(error);
       throw error;
     }
   }
-
 }
 
 const usersManagers = new UsersManager("./src/data/files/users.json");
