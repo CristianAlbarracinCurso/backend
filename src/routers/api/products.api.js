@@ -1,7 +1,8 @@
 import { Router } from "express";
+import { isValidProduct } from "../../middlewares/validateHandler.js";
 import {
   getAllProducts,
-  getProduct,
+  getOneProduct,
   createProduct,
   updateProduct,
   destroyProduct,
@@ -10,8 +11,8 @@ import {
 const productsRouter = Router();
 
 productsRouter.get("/", getAllProducts);
-productsRouter.get("/:pid", getProduct);
-productsRouter.post("/", createProduct);
+productsRouter.get("/:pid", getOneProduct);
+productsRouter.post("/", isValidProduct, createProduct);
 productsRouter.put("/:pid", updateProduct);
 productsRouter.delete("/:pid", destroyProduct);
 

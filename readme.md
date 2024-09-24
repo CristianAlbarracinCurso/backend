@@ -85,11 +85,24 @@ POST /api/carts =>"Crear un nuevo carrito."
 POST /api/carts/:cid/:pid/:quantity =>"Agregar un producto a un carrito por ID con una cantidad personalizada."
 
 GET /api/carts/:cid =>"Obtener los productos de un carrito por ID."
+
+## Managers
+- UsersManager: Administra los usuarios, permitiendo la creación, eliminación y búsqueda de usuarios.
+- ProductsManager: Administra los productos, permitiendo la creación, actualización, eliminación y consulta de productos.
+- CartsManager: Administra los carritos de compra, permitiendo agregar productos y consultar el estado del carrito.
+
+
 ## Tecnologias Utilizadas
 - Node.js
 - Express
 - Sistema de archivos (File System)
 - JSON para persistencia de datos
+
+## Capturas
+
+
+
+
 ## Proximamente
 - Integración de una base de datos real (MongoDB)
 - Autenticación y autorización para usuarios

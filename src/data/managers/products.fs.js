@@ -72,13 +72,17 @@ class ProductsManager {
   async delete(id) {
     try {
       const all = await this.readAll();
+      const productToDelete = all.find((product) => product.id === id);
+      if (!productToDelete) {
+        return null;
+      }
       const filteredProducts = all.filter((product) => product.id !== id);
       if (all.length === filteredProducts.length) {
         return null;
       }
       const stringAll = JSON.stringify(filteredProducts, null, 2);
       await fs.promises.writeFile(this.path, stringAll);
-      return `Product with id ${id} deleted`;
+      return productToDelete;
     } catch (error) {
       console.log(error);
       throw error;

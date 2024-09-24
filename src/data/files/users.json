@@ -9,7 +9,7 @@
   {
     "name": "juli",
     "email": "jule@coder.com",
-    "password": "1234",
+    "password": "12345678",
     "role": "user",
     "id": "020a6e9b8323a2f8c6f98f15"
   },
@@ -54,5 +54,33 @@
     "password": "1234",
     "role": "user",
     "id": "e038b09c1db2ffc53a8dfbd4"
+  },
+  {
+    "name": "pepe",
+    "email": "8@coder.com",
+    "password": "1234",
+    "role": "user",
+    "id": "c0588bcd9aeb430d95bd877d"
+  },
+  {
+    "name": "tomas",
+    "email": "p@coder.com",
+    "password": "1234",
+    "role": "user",
+    "id": "468db9e4346fa416657e4320"
+  },
+  {
+    "name": "ultimo",
+    "email": "u@coder.com",
+    "password": "1234",
+    "role": "user",
+    "id": "14aac61cb608f80f206397f0"
+  },
+  {
+    "name": "ahorasi",
+    "email": "eu@coder.com",
+    "password": "1234",
+    "role": "user",
+    "id": "0d072e203d96f4ee6f129e20"
   }
 ]

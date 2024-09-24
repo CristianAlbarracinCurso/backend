@@ -32,9 +32,9 @@ class UsersManager {
 
   async read(id) {
     try {
-      const users = await this.readAll();
-      const user = users.find((user) => user.id === id);
-      return user;
+      const all = await this.readAll();
+      const one = all.find((each) => each.id === id);
+      return one;
     } catch (error) {
       throw error;
     }
@@ -73,13 +73,17 @@ class UsersManager {
   async delete(id) {
     try {
       const all = await this.readAll();
+      const userToDelete = all.find((userDelete) => userDelete.id === id);
+      if (!userToDelete) {
+        return null;
+      }
       const filteredUsers = all.filter((user) => user.id !== id);
       if (all.length === filteredUsers.length) {
         return null;
       }
       const stringAll = JSON.stringify(filteredUsers, null, 2);
       await fs.promises.writeFile(this.path, stringAll);
-      return `User with id ${id} deleted`;
+      return userToDelete;
     } catch (error) {
       console.log(error);
       throw error;
