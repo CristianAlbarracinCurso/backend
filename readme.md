@@ -100,10 +100,44 @@ GET /api/carts/:cid =>"Obtener los productos de un carrito por ID."
 
 ## Capturas
 
+### Productos
 
+Crear Producto: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/createProduct.png "Crear Producto")
+
+Actualizar Un Producto: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/updateProduct.png "Actualizar Producto")
+
+Obtener un Producto: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/getOneProduct.png "Obtener Un Producto")
+
+Obtener Todos Los Producto: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/getAllProducts.png "Obtener Todos los Producto")
+
+Eliminar Un Producto: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/deleteProduct.png "Eliminar Un Producto")
+
+
+### Usuarios
+
+Crear Usuario: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/createUser.png "Crear Usuario")
+
+Actualizar Un Usuario: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/updateUser.png "Actualizar Usuario")
+
+Obtener un Usuario: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/getOneUser.png "Obtener Un Usuario")
+
+Obtener Todos Los Usuario: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/getAllUsers.png "Obtener Todos los Usuario")
+
+Eliminar Un Usuario: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/deleteUser.png "Eliminar Un Usuario")
 
 
 ## Proximamente
+- Manejo de Pull Request
 - Integración de una base de datos real (MongoDB)
 - Autenticación y autorización para usuarios
 - Validación más robusta de las entradas de datos
