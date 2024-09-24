@@ -13,7 +13,7 @@ function isValidProduct(req, res, next) {
     }
 
     // Asignar valores por defecto si thumbnails o statusProduct no están definidos
-    req.body.thumbnails = thumbnails || "none";
+    req.body.thumbnails = thumbnails || "img.jpg";
     req.body.statusProduct = statusProduct !== undefined ? statusProduct : true;
 
     return next();
