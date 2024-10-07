@@ -18,36 +18,38 @@ async function getAllUsers(req, res, next) {
 async function getOneUser(req, res, next) {
   try {
     const { uid } = req.params;
-    const response = await usersManager.read(uid);
+    const user = await usersManager.read(uid);
 
-    if (response) {
-      return res.status(200).json({ statusCode: 200, response });
+    if (user) {
+      return res.render("profile", { user }); // Renderiza la vista de perfil y pasa los datos del usuario
     } else {
-      const error = new Error("NOT FOUND PRODUCT");
-      error.statusCode = 404;
-      throw error;
+      return res.status(404).render("error", { message: "User not found" }); // Renderiza una vista de error si no se encuentra el usuario
     }
   } catch (error) {
+    console.error("Error fetching user:", error);
     return next(error);
   }
-
 }
-
 
 async function createUser(req, res, next) {
   try {
     const data = req.body;
-    const { email, password } = data;
-    if (!email || !password) {
-      const error = new Error("email and password are required");
-      error.statusCode = 400;
-      throw error;
+    const { email, password, username } = data; // Asegúrate de incluir el username si lo necesitas
+
+    // Validar si el email o username ya existe
+    const existingUser = await usersManager.findByEmail(email); // Asegúrate de implementar este método en tu manager
+    if (existingUser) {
+      return res.status(409).json({
+        statusCode: 409,
+        message: "El correo ya está registrado",
+      });
     }
+
     const userId = await usersManager.create(data);
     return res.status(201).json({
       statusCode: 201,
       response: userId,
-      message: "User created successfully",
+      message: "Usuario creado exitosamente",
     });
   } catch (error) {
     return next(error);
@@ -93,6 +95,9 @@ async function destroyUser(req, res, next) {
     return next(error);
   }
 }
+async function findByEmail(email) {
+  return users.find((user) => user.email === email);
+}
 
 export {
   getAllUsers,
@@ -101,4 +106,5 @@ export {
   createUser,
   updateUser,
   destroyUser,
+  findByEmail,
 };

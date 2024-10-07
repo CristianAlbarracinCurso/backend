@@ -1,4 +1,3 @@
-
 # E-Commerce
 
 Esta es una API simple de e-commerce desarrollada con Node.js y Express, que permite gestionar usuarios, productos y carritos de compras.
@@ -9,13 +8,17 @@ Esta es una API simple de e-commerce desarrollada con Node.js y Express, que per
 - Gestión de productos
 - Gestión de carritos de compras
 - Agregar productos a carritos con cantidades personalizadas
+- Se agregaron vistas con handlebars
 - Persistencia de datos en archivos JSON
 ## Estructura de Archivos
 
 ```
 ├──public
 │  ├── img
-│  └── imgProducts
+│  ├── imgProducts
+│  ├── scripts
+│  ├── css
+│  └── imgUser
 ├── src 
 │   ├── controllers
 │   │   ├── carts.controllers.js
@@ -30,12 +33,35 @@ Esta es una API simple de e-commerce desarrollada con Node.js y Express, que per
 │   │       ├── carts.fs.js
 │   │       ├── products.fs.js
 │   │       └── users.fs.js
+│   ├── middlewares
+│   │   ├── errorHandler.js
+│   │   ├── pathHandler.js
+│   │   └── validateHandler.js
 │   ├── routes
 │   │   ├── api
 │   │   │   ├── carts.routes.js
+│   │   │   ├── index.routes.js
 │   │   │   ├── products.routes.js
 │   │   │   └── users.routes.js
-│   │   └── index.router.js
+│   │   ├──views
+│   │   │   ├── carts.view.js
+│   │   │   ├── chats.view.js
+│   │   │   ├── index.view.js
+│   │   │   ├── login.view.js
+│   │   │   ├── products.view.js
+│   │   │   ├── register.view.js
+│   │   │   └── users.view.js
+│   │   ├── index.router.js
+│   │   └── index.socket.js
+│   └── views
+│       ├── layouts
+│       │   └── main.handlebars
+│       ├── chats.handlebars
+│       ├── index.handlebars
+│       ├── login.handlebars
+│       ├── products.handlebars
+│       ├── register.handlebars
+│       └── user.router.js
 ├── server.js
 ├── utils.js
 └── README.md

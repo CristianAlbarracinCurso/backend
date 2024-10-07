@@ -6,6 +6,7 @@ class UsersManager {
     this.path = path;
     this.exists();
   }
+
   exists() {
     const exist = fs.existsSync(this.path);
     if (!exist) {
@@ -15,6 +16,7 @@ class UsersManager {
       console.log("users file already exists");
     }
   }
+
   async readAll(role) {
     try {
       const data = await fs.promises.readFile(this.path, "utf-8");
@@ -88,6 +90,11 @@ class UsersManager {
       console.log(error);
       throw error;
     }
+  }
+
+  async findByEmail(email) {
+    const users = await this.readAll(); // Leer todos los usuarios del archivo
+    return users.find((user) => user.email === email); // Buscar el usuario por email
   }
 }
 

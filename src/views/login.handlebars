@@ -1,0 +1,68 @@
+<div class="registration-form">
+  <form id="loginForm" action="/login" method="POST">
+    <div class="form-group item">
+      <img src="/public/img/bg-login.jpg" alt="" />
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control item"
+        name="username"
+        id="username"
+        placeholder="Usuario"
+        required
+        autocomplete="username"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        class="form-control item"
+        name="password"
+        id="password"
+        placeholder="Password"
+        required
+        autocomplete="current-password"
+      />
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-block create-account"
+      >Ingresar</button>
+    </div>
+    <div class="form-group d-md-flex">
+      <div class="w-50 text-left">
+        <label class="checkbox-wrap checkbox-primary mb-0">
+          Recordarme
+          <input type="checkbox" name="remember" checked />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+  </form>
+  <div class="social-media">
+    <p class="contact_name">Si no tienes una cuenta
+      <a href="/register">Registrarse aquí</a>
+    </p>
+  </div>
+</div>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit',
+  function(event) { event.preventDefault(); 
+  formData = new FormData(this); 
+  const data = { username:  formData.get('username'), password: formData.get('password') }; 
+  
+   if (!data.username || !data.password) 
+   { Swal.fire({ icon: 'error', title: 'Error', text: 'Por favor ingresa un nombrede usuario y contraseña.' }); return; } 
+  fetch('/login', { method: 'POST', headers: { 'Content-Type':  'application/json' }, body: JSON.stringify(data) }) 
+  .then(response => response.json())  .then(result => { 
+    if (result.success)
+  {  Swal.fire({ icon: 'success', title: 'Éxito', text: 'Inicio de sesión exitoso.', showConfirmButton: false, timer: 1500 })
+  .then(() => {window.location.href = "/products"; }); } else { 
+  Swal.fire({ icon: 'error', title: 'Error', text: result.message
+  || 'Usuario o contraseña incorrectos.' }); } }) .catch(error => { Swal.fire({
+  icon: 'error', title: 'Error', text: 'Hubo un problema con el servidor.' });
+  }); });
+</script>

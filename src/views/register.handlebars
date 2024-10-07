@@ -1,0 +1,107 @@
+<div class="registration-form">
+  <form id="registerForm" action="/register" method="POST">
+    <div class="form-group item">
+      <img src="/public/img/bg-register.jpg" alt="" />
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control item"
+        name="username"
+        id="username"
+        placeholder="Usuario"
+        required
+        autocomplete="username"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="email"
+        class="form-control item"
+        name="email"
+        id="email"
+        placeholder="Email"
+        required
+        autocomplete="email"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        class="form-control item"
+        name="password"
+        id="password"
+        placeholder="Password"
+        required
+        autocomplete="current-password"
+      />
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-block create-account"
+      >Crear</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar el envío por defecto
+
+    const formData = new FormData(this);
+    const data = {
+      username: formData.get('username'),
+      email: formData.get('email'),
+      password: formData.get('password')
+    };
+
+    // Validación simple en el lado del cliente
+    if (!data.username || !data.email || !data.password) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Por favor completa todos los campos.'
+      });
+      return;
+    }
+
+    // Hacer la petición POST
+    fetch('/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (result.success) {
+        // Registro exitoso
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Cuenta creada exitosamente.',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {
+          window.location.href = "/login"; // Redirigir a login
+        });
+      } else {
+        // Registro fallido
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: result.message || 'Hubo un problema al crear tu cuenta.'
+        });
+      }
+    })
+    .catch(error => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Hubo un problema con el servidor.'
+      });
+    });
+  });
+</script>
