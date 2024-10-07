@@ -21,9 +21,9 @@ async function getOneUser(req, res, next) {
     const user = await usersManager.read(uid);
 
     if (user) {
-      return res.render("profile", { user }); // Renderiza la vista de perfil y pasa los datos del usuario
+      return res.render("profile", { user }); 
     } else {
-      return res.status(404).render("error", { message: "User not found" }); // Renderiza una vista de error si no se encuentra el usuario
+      return res.status(404).render("error", { message: "User not found" }); 
     }
   } catch (error) {
     console.error("Error fetching user:", error);
@@ -34,18 +34,31 @@ async function getOneUser(req, res, next) {
 async function createUser(req, res, next) {
   try {
     const data = req.body;
-    const { email, password, username } = data; // Asegúrate de incluir el username si lo necesitas
+    const { email, password, username } = data;
 
-    // Validar si el email o username ya existe
-    const existingUser = await usersManager.findByEmail(email); // Asegúrate de implementar este método en tu manager
+    // Verificar que el email y password sean obligatorios
+    if (!email || !password) {
+      return res.status(400).json({
+        statusCode: 400,
+        message: "El email y la contraseña son obligatorios",
+      });
+    }
+
+    const existingUser = await usersManager.findByEmail(email);
     if (existingUser) {
       return res.status(409).json({
         statusCode: 409,
         message: "El correo ya está registrado",
       });
     }
+    const userData = {
+      ...data,
+      role: data.role || 0, 
+      photo: data.photo || "public/imgUser/userNone.jpg", 
+      isOnline: false,
+    };
 
-    const userId = await usersManager.create(data);
+    const userId = await usersManager.create(userData);
     return res.status(201).json({
       statusCode: 201,
       response: userId,

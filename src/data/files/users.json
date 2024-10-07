@@ -1,122 +1,29 @@
 [
   {
-    "name": "cristian",
-    "email": "1@coder.com",
-    "password": "1234",
-    "role": "admin",
-    "id": "2ccef4588786603a9ebd02b6"
+    "username": "Cristian",
+    "email": "q@q.com",
+    "password": "12345",
+    "role": 1,
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "330b05ab89e0e8075af92906"
   },
   {
-    "name": "juli",
-    "email": "jule@coder.com",
-    "password": "12345678",
-    "role": "user",
-    "id": "020a6e9b8323a2f8c6f98f15"
+    "username": "Igna",
+    "email": "a@a.com",
+    "password": "12345",
+    "role": 0,
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "6006c58aa69a01e8424eada5"
   },
   {
-    "name": "igna",
-    "email": "igna@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "c26940b3cd637fa4d4088a3d"
-  },
-  {
-    "name": "matias",
-    "email": "matias@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "a4970acb68a2bd821c26788d"
-  },
-  {
-    "name": "nico",
-    "email": "nico@coder.com",
-    "password": "1234",
-    "role": "admin",
-    "id": "d33f97847f07744e326d5e3c"
-  },
-  {
-    "name": "colo",
-    "email": "colo@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "10d2ad3fa3ef4084d484ae59"
-  },
-  {
-    "name": "colo",
-    "email": "colo@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "743ba177b142058018949bcc"
-  },
-  {
-    "name": "jose",
-    "email": "7@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "e038b09c1db2ffc53a8dfbd4"
-  },
-  {
-    "name": "pepe",
-    "email": "8@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "c0588bcd9aeb430d95bd877d"
-  },
-  {
-    "name": "tomas",
-    "email": "p@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "468db9e4346fa416657e4320"
-  },
-  {
-    "name": "ultimo",
-    "email": "u@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "14aac61cb608f80f206397f0"
-  },
-  {
-    "name": "ahorasi",
-    "email": "eu@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "0d072e203d96f4ee6f129e20"
-  },
-  {
-    "username": "a",
-    "email": "aa@aa.com",
-    "password": "2222",
-    "id": "23d616798eaa3969774fec1f"
-  },
-  {
-    "username": "a",
-    "email": "aa@saa.com",
-    "password": "sas",
-    "id": "2d765dc39b323bd5a8350450"
-  },
-  {
-    "username": "a",
-    "email": "aaw@saa.com",
-    "password": "aaaa",
-    "id": "40a57bb729f2bbc2611898cb"
-  },
-  {
-    "username": "s",
-    "email": "s@s.com",
-    "password": "s",
-    "id": "7c3a261f216347746e477f32"
-  },
-  {
-    "username": "ss",
-    "email": "s@ss.com",
-    "password": "s",
-    "id": "1419f7d63e2e03be382eed65"
-  },
-  {
-    "username": "aa",
-    "email": "sssss@fasda.com",
-    "password": "1234",
-    "id": "d3ad79c118bd7d5a2f92ae5f"
+    "username": "coder",
+    "email": "a@1a.com",
+    "password": "12345",
+    "role": 0,
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "356d06da2eaff9d6af1cccd6"
   }
 ]

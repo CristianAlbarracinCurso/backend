@@ -48,21 +48,4 @@
   </div>
 </div>
 
-<script>
-  document.getElementById('loginForm').addEventListener('submit',
-  function(event) { event.preventDefault(); 
-  formData = new FormData(this); 
-  const data = { username:  formData.get('username'), password: formData.get('password') }; 
-  
-   if (!data.username || !data.password) 
-   { Swal.fire({ icon: 'error', title: 'Error', text: 'Por favor ingresa un nombrede usuario y contraseña.' }); return; } 
-  fetch('/login', { method: 'POST', headers: { 'Content-Type':  'application/json' }, body: JSON.stringify(data) }) 
-  .then(response => response.json())  .then(result => { 
-    if (result.success)
-  {  Swal.fire({ icon: 'success', title: 'Éxito', text: 'Inicio de sesión exitoso.', showConfirmButton: false, timer: 1500 })
-  .then(() => {window.location.href = "/products"; }); } else { 
-  Swal.fire({ icon: 'error', title: 'Error', text: result.message
-  || 'Usuario o contraseña incorrectos.' }); } }) .catch(error => { Swal.fire({
-  icon: 'error', title: 'Error', text: 'Hubo un problema con el servidor.' });
-  }); });
-</script>
+ <script src="public/scripts/scriptLogin.js"></script>

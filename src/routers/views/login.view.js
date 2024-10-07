@@ -7,37 +7,29 @@ import __dirname from "../../../utils.js";
 const loginViewsRouter = Router();
 
 loginViewsRouter.post("/", (req, res) => {
-  console.log("Body:", req.body);
   const { username, password } = req.body;
-  console.log("Users1:", username);
-  console.log("Pass1:", password);
-  // Leer usuarios desde el archivo JSON
-  const usersPath = path.join(__dirname, "./src/data/files/users.json"); // Ajusta la ruta según tu estructura
+
+  const usersPath = path.join(__dirname, "./src/data/files/users.json");
 
   fs.readFile(usersPath, "utf-8", (err, data) => {
-    console.log("Users:", username);
-    console.log("Pass:", password);
-
     if (err) {
       return res.status(500).send("Error reading user data");
     }
 
     const users = JSON.parse(data);
-    const user = users.find(
-      (u) => u.name === username && u.password === password
-    );
+    const user = users.find((u) => u.username === username);
 
     if (user) {
       // Aquí puedes guardar la sesión si es necesario
       req.session.isAuthenticated = true;
       req.session.user = user;
-
+    
       // Emitir un evento a través del socket
       socketServer.emit("user logged in", { username: user.name });
-
-      return res.redirect("./products"); // Redirigir al usuario a la página principal
+    
+      return res.json({ success: true }); // Cambia esto
     } else {
-      return res.status(401).send("Invalid username or password");
+      return res.status(401).json({ success: false, message: "Invalid username or password" }); // Cambia esto
     }
   });
 });

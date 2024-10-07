@@ -15,6 +15,7 @@ import {
   isValidUser,
 } from "./src/middlewares/validateHandler.js";
 import loginViewsRouter from "./src/routers/views/login.view.js";
+import profileViewsRouter from "./src/routers/views/profile.view.js";
 
 // server http
 const server = express();
@@ -57,17 +58,30 @@ server.use(
   })
 );
 
-// middleware global para manejar el estado de sesión
 server.use((req, res, next) => {
-  res.locals.isAuthenticated = req.session.isAuthenticated || false;
-  res.locals.role = req.session.user?.role || "guest";
-  res.locals.username = req.session.user?.name || "";
+  // Asegúrate de que req.session esté disponible
+  if (req.session) {
+    res.locals.isAuthenticated = req.session.isAuthenticated || false;
+    
+    // Determina el rol en función del valor de req.session.user.role
+    if (req.session.user) {
+      res.locals.role = req.session.user.role === 1 ? "admin" : "user"; // 1 para administradores, 0 para usuarios
+      res.locals.username = req.session.user.name || ""; // Asegúrate de verificar si user existe
+    } else {
+      res.locals.role = "guest"; // Si no hay usuario, asigna "guest"
+      res.locals.username = "";
+    }
+  } else {
+    res.locals.isAuthenticated = false;
+    res.locals.role = "guest";
+    res.locals.username = "";
+  }
   next();
 });
 
 // Rutas
-server.use("/login", loginViewsRouter); // Asegúrate de que este sea correcto
-server.use(router); // Usa el router principal aquí
+
+server.use(router); 
 
 // routers
 server.use(errorHandler);
