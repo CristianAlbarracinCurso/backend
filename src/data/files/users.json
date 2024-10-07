@@ -25,5 +25,14 @@
     "photo": "public/imgUser/userNone.jpg",
     "isOnline": false,
     "id": "356d06da2eaff9d6af1cccd6"
+  },
+  {
+    "username": "a",
+    "email": "contaduria@medicos-municipales.org.ar",
+    "password": "123456",
+    "role": 0,
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "e560e167ff810e48a8d557ed"
   }
 ]
