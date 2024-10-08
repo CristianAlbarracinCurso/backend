@@ -19,17 +19,19 @@ loginViewsRouter.post("/", (req, res) => {
     const users = JSON.parse(data);
     const user = users.find((u) => u.username === username);
 
-    if (user) {
-      // Aquí puedes guardar la sesión si es necesario
+    if (user && user.password === password) {
+      // Asegúrate de validar la contraseña también
       req.session.isAuthenticated = true;
-      req.session.user = user;
-    
-      // Emitir un evento a través del socket
+      req.session.user = user; // Guardar usuario en la sesión
+
+      // Emitir un evento a través del socket si lo necesitas
       socketServer.emit("user logged in", { username: user.name });
-    
-      return res.json({ success: true }); // Cambia esto
+
+      return res.json({ success: true }); // Respuesta en caso de éxito
     } else {
-      return res.status(401).json({ success: false, message: "Invalid username or password" }); // Cambia esto
+      return res
+        .status(401)
+        .json({ success: false, message: "Usuario o contraseña incorrectos." });
     }
   });
 });

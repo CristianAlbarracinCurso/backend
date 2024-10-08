@@ -53,7 +53,7 @@ async function createUser(req, res, next) {
     }
     const userData = {
       ...data,
-      role: data.role || 0, 
+      role: data.role || "0", 
       photo: data.photo || "public/imgUser/userNone.jpg", 
       isOnline: false,
     };

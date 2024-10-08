@@ -10,12 +10,6 @@ import cors from "cors";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import socketCb from "./src/routers/index.socket.js";
-import {
-  isValidProduct,
-  isValidUser,
-} from "./src/middlewares/validateHandler.js";
-import loginViewsRouter from "./src/routers/views/login.view.js";
-import profileViewsRouter from "./src/routers/views/profile.view.js";
 
 // server http
 const server = express();
@@ -58,30 +52,23 @@ server.use(
   })
 );
 
+// Middleware global para pasar la sesión del usuario a todas las vistas
 server.use((req, res, next) => {
-  // Asegúrate de que req.session esté disponible
-  if (req.session) {
-    res.locals.isAuthenticated = req.session.isAuthenticated || false;
-    
-    // Determina el rol en función del valor de req.session.user.role
-    if (req.session.user) {
-      res.locals.role = req.session.user.role === 1 ? "admin" : "user"; // 1 para administradores, 0 para usuarios
-      res.locals.username = req.session.user.name || ""; // Asegúrate de verificar si user existe
-    } else {
-      res.locals.role = "guest"; // Si no hay usuario, asigna "guest"
-      res.locals.username = "";
-    }
+  if (req.session && req.session.user) {
+    res.locals.user = req.session.user; // Pasamos el usuario a las vistas
+    res.locals.isAuthenticated = true; // Autenticación correcta
+    res.locals.role = req.session.user.role; // Pasamos el rol del usuario
   } else {
+    res.locals.user = null; // Si no hay usuario, enviamos null
     res.locals.isAuthenticated = false;
-    res.locals.role = "guest";
-    res.locals.username = "";
+    res.locals.role = "guest"; // Rol predeterminado para no autenticados
   }
   next();
 });
 
 // Rutas
 
-server.use(router); 
+server.use(router);
 
 // routers
 server.use(errorHandler);

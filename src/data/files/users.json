@@ -3,8 +3,8 @@
     "username": "Cristian",
     "email": "q@q.com",
     "password": "12345",
-    "role": 1,
-    "photo": "public/imgUser/userNone.jpg",
+    "role": "1",
+    "photo": "userNone.jpg",
     "isOnline": false,
     "id": "330b05ab89e0e8075af92906"
   },
@@ -12,8 +12,8 @@
     "username": "Igna",
     "email": "a@a.com",
     "password": "12345",
-    "role": 0,
-    "photo": "public/imgUser/userNone.jpg",
+    "role": "0",
+    "photo": "userNone.jpg",
     "isOnline": false,
     "id": "6006c58aa69a01e8424eada5"
   },
@@ -21,8 +21,8 @@
     "username": "coder",
     "email": "a@1a.com",
     "password": "12345",
-    "role": 0,
-    "photo": "public/imgUser/userNone.jpg",
+    "role": "0",
+    "photo": "userNone.jpg",
     "isOnline": false,
     "id": "356d06da2eaff9d6af1cccd6"
   },
@@ -30,8 +30,8 @@
     "username": "a",
     "email": "contaduria@medicos-municipales.org.ar",
     "password": "123456",
-    "role": 0,
-    "photo": "public/imgUser/userNone.jpg",
+    "role": "0",
+    "photo": "userNone.jpg",
     "isOnline": false,
     "id": "e560e167ff810e48a8d557ed"
   }

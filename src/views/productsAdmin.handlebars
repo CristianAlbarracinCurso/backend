@@ -1,0 +1,33 @@
+<h2>ADMINISTRADOR de productos</h2>
+<section class="d-flex flex-wrap justify-content-evenly">
+  {{#each data}}
+
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            src="../../public/imgProducts/{{this.thumbnails}} "
+            class="img-fluid rounded-start"
+            alt="..."
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <small class="text-body-secondary">{{this.description}}</small>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a
+                  href="#"
+                  class="card-link"
+                >Modificar Producto</a></li>
+              <li class="list-group-item"><a href="#" class="card-link">Eliminar
+                  Producto</a></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {{/each}}
+</section>
