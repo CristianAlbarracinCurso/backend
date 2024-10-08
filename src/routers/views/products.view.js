@@ -17,6 +17,7 @@ productsViewRouter.get("/admin", async (req, res) => {
   }
 });
 
+
 productsViewRouter.get("/", showProducts);
 
 productsViewRouter.get("/:pid", showOneProduct);

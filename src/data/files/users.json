@@ -5,7 +5,7 @@
     "password": "12345",
     "role": "1",
     "photo": "userNone.jpg",
-    "isOnline": false,
+    "isOnline": true,
     "id": "330b05ab89e0e8075af92906"
   },
   {

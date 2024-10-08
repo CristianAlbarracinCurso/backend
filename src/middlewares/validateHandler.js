@@ -33,24 +33,18 @@ function isValidUserRegister(req, res, next) {
       return next();
     }
   } catch (error) {
-    return next(error); // Cambié aquí para que pase el error a next()
+    return next(error); 
   }
 }
 
 function isValidUser(req, res, next) {
   try {
     const { usermane, password } = req.body;
-
-    // Validación de campos vacíos
     if (!usermane || !password) {
       const error = new Error("Usuario y contraseña son requeridos");
       error.statusCode = 400;
       throw error;
     }
-
-    // Aquí podrías agregar validación adicional, como longitud mínima, formato de email, etc.
-
-    // Simular la validación de usuario (podrías hacer una búsqueda en la base de datos aquí)
     const usersPath = path.join(__dirname, "./src/data/files/users.json");
 
     fs.readFile(usersPath, "utf-8", (err, data) => {
@@ -66,13 +60,13 @@ function isValidUser(req, res, next) {
       );
 
       if (!user) {
-        // Usuario no encontrado o contraseña incorrecta
         return res
           .status(401)
           .json({ error: "Usuario o contraseña incorrectos" });
       }
 
       // Si el login es válido, continuar con el siguiente middleware
+      
       req.session.isAuthenticated = true;
       req.session.user = user;
       return next();
@@ -82,4 +76,14 @@ function isValidUser(req, res, next) {
   }
 }
 
-export { isValidProduct, isValidUser, isValidUserRegister };
+
+function authMiddleware(req, res, next) {
+  if (req.session.isAuthenticated) {
+    return next();
+  } else {
+    return res.redirect('/login');
+  }
+}
+
+
+export { isValidProduct, isValidUser, isValidUserRegister,authMiddleware };

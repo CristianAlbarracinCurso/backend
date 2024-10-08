@@ -60,11 +60,9 @@ async function addCartProducts(req, res, next) {
     );
 
     if (productIndex !== -1) {
-      // si el producto ya existe en el carrito, aumentar la cantidad enviada (aunque pide hacerlo de uno en uno)
       cart.products[productIndex].quantity =
         parseInt(cart.products[productIndex].quantity, 10) + quantity;
     } else {
-      // Si no está en el carrito, se pone la cantidad enviada
       cart.products.push({
         product: pid,
         quantity: quantity,

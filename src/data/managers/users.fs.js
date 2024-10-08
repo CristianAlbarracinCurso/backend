@@ -1,6 +1,7 @@
 import fs from "fs";
 import crypto from "crypto";
 
+
 class UsersManager {
   constructor(path) {
     this.path = path;
@@ -96,6 +97,35 @@ class UsersManager {
     const users = await this.readAll(); // Leer todos los usuarios del archivo
     return users.find((user) => user.email === email); // Buscar el usuario por email
   }
+
+  async updateUser(userId, updatedData) {
+    try {
+      const users = await this.readAll(); // Leer todos los usuarios
+      const userIndex = users.findIndex(user => user.id === userId);
+      
+      if (userIndex === -1) throw new Error('Usuario no encontrado');
+  
+      // Actualiza el usuario
+      users[userIndex] = { ...users[userIndex], ...updatedData };
+      
+      // Guardar los cambios de vuelta al archivo o base de datos
+      await fs.promises.writeFile(this.path, JSON.stringify(users, null, 2));
+    } catch (error) {
+      throw error;
+    }
+  }
+  async authenticate(username, password) {
+    const users = await this.readAll(); // Lee todos los usuarios
+    const user = users.find(user => user.username === username);
+  
+    // Verifica si el usuario existe y si la contraseña es correcta
+    if (user && user.password === password) {
+      return user;
+    } else {
+      throw new Error('Usuario o contraseña incorrectos');
+    }
+  }
+
 }
 
 const usersManagers = new UsersManager("./src/data/files/users.json");

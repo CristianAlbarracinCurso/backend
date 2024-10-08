@@ -1,4 +1,7 @@
 import usersManager from "../data/managers/users.fs.js";
+import { socketServer } from "../../server.js"
+import socketCb from "../routers/index.socket.js";
+
 async function getAllUsers(req, res, next) {
   try {
     const { role } = req.query;
@@ -11,7 +14,7 @@ async function getAllUsers(req, res, next) {
       throw error;
     }
   } catch (error) {
-    return next(error);
+    return next(error); 
   }
 }
 
@@ -112,6 +115,39 @@ async function findByEmail(email) {
   return users.find((user) => user.email === email);
 }
 
+
+async function loginUser(req, res, next) {
+  try {
+    const { username, password } = req.body;
+
+    // Lógica de autenticación de usuario
+    const user = await usersManager.authenticate(username, password);
+
+    if (user) {
+      // Si el usuario es autenticado
+      user.isOnline = true; // Marca al usuario como en línea
+      await usersManager.update(user.id, user); // Actualiza el estado del usuario
+
+      req.session.isAuthenticated = true; // Marca la sesión como autenticada
+      req.session.user = user; // Guarda el usuario en la sesión para usarlo luego
+
+      // Emitir evento de inicio de sesión
+      socketServer.emit("user logged in", { username: user.username });
+
+      // Devolver una respuesta de éxito que el frontend pueda manejar con SweetAlert
+      return res.status(200).json({ success: true, message: "Inicio de sesión exitoso" });
+    } else {
+      // Usuario o contraseña incorrectos
+      return res.status(401).json({ success: false, message: "Usuario o contraseña incorrectos." });
+    }
+  } catch (error) {
+    return next(error);
+  }
+}
+
+
+
+
 export {
   getAllUsers,
   getOneUser,
@@ -120,4 +156,5 @@ export {
   updateUser,
   destroyUser,
   findByEmail,
+  loginUser
 };

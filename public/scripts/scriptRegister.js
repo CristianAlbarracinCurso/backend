@@ -8,7 +8,6 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     password: formData.get('password')
   };
 
-  // Verificar si todos los campos están completos
   if (!data.username || !data.email || !data.password) {
     Swal.fire({
       icon: 'error',
@@ -17,8 +16,6 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     });
     return;
   }
-
-  // Enviar la solicitud POST al servidor
   fetch('/register', {
     method: 'POST',
     headers: {
@@ -28,7 +25,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
   })
   .then(response => response.json())
   .then(result => {
-    // Verificar si el statusCode es 201 (creación exitosa)
+
     if (result.statusCode === 201) {
       Swal.fire({
         icon: 'success',
@@ -37,7 +34,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         showConfirmButton: false,
         timer: 1500
       }).then(() => {
-        window.location.href = "/login"; // Redirigir a la página de login
+        window.location.href = "/login"; 
       });
     } else {
       Swal.fire({
