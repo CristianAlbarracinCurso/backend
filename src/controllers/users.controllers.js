@@ -1,6 +1,5 @@
 import usersManager from "../data/managers/users.fs.js";
-import { socketServer } from "../../server.js"
-import socketCb from "../routers/index.socket.js";
+import { socketServer } from "../../server.js";
 
 async function getAllUsers(req, res, next) {
   try {
@@ -14,7 +13,7 @@ async function getAllUsers(req, res, next) {
       throw error;
     }
   } catch (error) {
-    return next(error); 
+    return next(error);
   }
 }
 
@@ -24,9 +23,9 @@ async function getOneUser(req, res, next) {
     const user = await usersManager.read(uid);
 
     if (user) {
-      return res.render("profile", { user }); 
+      return res.render("profile", { user });
     } else {
-      return res.status(404).render("error", { message: "User not found" }); 
+      return res.status(404).render("error", { message: "User not found" });
     }
   } catch (error) {
     console.error("Error fetching user:", error);
@@ -39,7 +38,6 @@ async function createUser(req, res, next) {
     const data = req.body;
     const { email, password, username } = data;
 
-    // Verificar que el email y password sean obligatorios
     if (!email || !password) {
       return res.status(400).json({
         statusCode: 400,
@@ -56,8 +54,8 @@ async function createUser(req, res, next) {
     }
     const userData = {
       ...data,
-      role: data.role || "0", 
-      photo: data.photo || "public/imgUser/userNone.jpg", 
+      role: data.role || "0",
+      photo: data.photo || "public/imgUser/userNone.jpg",
       isOnline: false,
     };
 
@@ -115,38 +113,33 @@ async function findByEmail(email) {
   return users.find((user) => user.email === email);
 }
 
-
 async function loginUser(req, res, next) {
   try {
     const { username, password } = req.body;
 
-    // Lógica de autenticación de usuario
     const user = await usersManager.authenticate(username, password);
-
+    console.log(user);
     if (user) {
-      // Si el usuario es autenticado
-      user.isOnline = true; // Marca al usuario como en línea
-      await usersManager.update(user.id, user); // Actualiza el estado del usuario
+      user.isOnline = true;
+      // await usersManager.update(user.id, user); // Actualiza el estado del usuario
 
-      req.session.isAuthenticated = true; // Marca la sesión como autenticada
-      req.session.user = user; // Guarda el usuario en la sesión para usarlo luego
+      req.session.isAuthenticated = true;
+      req.session.user = user;
 
-      // Emitir evento de inicio de sesión
       socketServer.emit("user logged in", { username: user.username });
 
-      // Devolver una respuesta de éxito que el frontend pueda manejar con SweetAlert
-      return res.status(200).json({ success: true, message: "Inicio de sesión exitoso" });
+      return res
+        .status(200)
+        .json({ success: true, message: "Inicio de sesión exitoso" });
     } else {
-      // Usuario o contraseña incorrectos
-      return res.status(401).json({ success: false, message: "Usuario o contraseña incorrectos." });
+      return res
+        .status(401)
+        .json({ success: false, message: "Usuario o contraseña incorrectos." });
     }
   } catch (error) {
     return next(error);
   }
 }
-
-
-
 
 export {
   getAllUsers,
@@ -156,5 +149,5 @@ export {
   updateUser,
   destroyUser,
   findByEmail,
-  loginUser
+  loginUser,
 };

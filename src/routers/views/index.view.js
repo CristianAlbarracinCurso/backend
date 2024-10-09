@@ -4,7 +4,6 @@ import productsViewRouter from "./products.view.js";
 import cartsViewRouter from "./carts.view.js";
 import usersViewRouter from "./users.view.js";
 import chatsViewRouter from "./chats.view.js";
-
 import logoutViewRouter from "./logout.view.js";
 import registerViewRouter from "./register.view.js";
 

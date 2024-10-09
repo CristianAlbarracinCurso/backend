@@ -1,11 +1,10 @@
 import { Router } from "express";
-import { getOneUser,loginUser } from "../../controllers/users.controllers.js";
+import { getOneUser, loginUser } from "../../controllers/users.controllers.js";
 import usersManager from "../../data/managers/users.fs.js";
 
 const usersViewRouter = Router();
 
 usersViewRouter.post("/login", loginUser);
-
 
 usersViewRouter.get("/login", (req, res) => {
   res.render("login");
@@ -13,17 +12,15 @@ usersViewRouter.get("/login", (req, res) => {
 
 usersViewRouter.get("/online", async (req, res) => {
   try {
-    const users = await usersManager.readAll(); // Obtener todos los usuarios
+    const users = await usersManager.readAll();
     res.render("usersOnline", {
       data: users,
-      isAuthenticated: req.session.isAuthenticated // Pasar el estado de autenticación a la vista
+      isAuthenticated: req.session.isAuthenticated,
     });
   } catch (error) {
     res.status(500).send({ message: "Error al obtener los usuarios" });
   }
 });
-
-
 
 usersViewRouter.get("/", (req, res, next) => {
   try {

@@ -1,9 +1,9 @@
+<!doctype html>
+ <html>
+ <head>
 
-
-
-
-<html lang="es">
-  <head>
+   <head>
+      <title>Ecommerce</title>    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -47,8 +47,7 @@
                 <a class="nav-item nav-link" href="/products">Productos</a>
                 <a class="nav-item nav-link" href="/products/admin">Admin
                   Products</a>
-                <a class="nav-item nav-link" href="/users/online">Usuarios en
-                  linea</a>
+                <a class="nav-item nav-link" href="/users/online">Usuarios en                  linea</a>
 
                 <a
                   class="nav-item nav-link"
@@ -58,17 +57,17 @@
                 <a class="nav-item nav-link" href="/logout">Cerrar sesión</a>
               {{else}}
                 <!-- Si el rol es usuario -->
-                <a class="nav-item nav-link" href="/products">Productos user</a>
+                <a class="nav-item nav-link" href="/products">Productos</a>
                 <a
                   class="nav-item nav-link"
-                  href="/profile/{{user.id}}"
+                  href="/users/{{user.id}}"
                 >Perfil</a>
                 <a class="nav-item nav-link" href="/chats">Chat</a>
                 <a class="nav-item nav-link" href="/logout">Cerrar sesión</a>
               {{/if}}
             {{else}}
               <!-- Si el usuario no está autenticado -->
-              <a class="nav-item nav-link" href="/products">Productos invitado</a>
+              <a class="nav-item nav-link" href="/products">Productos</a>
               <a class="nav-item nav-link" href="/register">Registrar</a>
               <a class="nav-item nav-link" href="/users/login">Login</a>
               <a class="nav-item nav-link disabled" href="/chats">Chat</a>
@@ -95,5 +94,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
+    <script src="/public/scripts/scriptLogin.js"></script>
   </body>
 </html>

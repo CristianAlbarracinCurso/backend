@@ -1,11 +1,15 @@
 <h1 class="my-3">CODER CHAT</h1>
-<section>
+<script>
+  const username = "{{user.username}}";  
+</script>
 
+
+<section>
   <div class="phoneswrapper">
 
     <div class="chat_main">
       <div class="chat_head">
-        <div class="title"> <span id="username"></span> </div>
+        <div class="title"> <span id="username">{{user.username}}</span> </div>
         <div class=""> </div>
       </div>
       <div class="divider"> </div>

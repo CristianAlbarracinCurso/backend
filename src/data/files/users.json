@@ -34,5 +34,41 @@
     "photo": "userNone.jpg",
     "isOnline": false,
     "id": "e560e167ff810e48a8d557ed"
+  },
+  {
+    "username": "Cristian1",
+    "email": "contaduria1@medicos-municipales.org.ar",
+    "password": "123451",
+    "role": "0",
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "657b9ff7fba4e8fb4683fce6"
+  },
+  {
+    "username": "Cristian11",
+    "email": "contaduria11@medicos-municipales.org.ar",
+    "password": "12345111",
+    "role": "0",
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "be360a914fc7520fff979f62"
+  },
+  {
+    "username": "Cristian11",
+    "email": "albarracincristian.fv111@gmail.com",
+    "password": "12345111",
+    "role": "0",
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "3366a04861888550b2448737"
+  },
+  {
+    "username": "Cristianqqq",
+    "email": "contaduriaqqqq@medicos-municipales.org.ar",
+    "password": "12345qq",
+    "role": "0",
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "43b8e3d320c1ee43eef60553"
   }
 ]

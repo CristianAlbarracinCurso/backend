@@ -1,17 +1,5 @@
 const socket = io();
 
-let username = "";
-
-Swal.fire({
-  title: "Please, enter your name!",
-  input: "text",
-  allowOutsideClick: false,
-  inputValidator: (value) => !value && "Enter your name for continue!",
-}).then((data) => {
-  username = data.value;
-  document.querySelector("#username").innerHTML = username;
-});
-
 socket.on("all messages", (data) => {
   data = data
     .map(

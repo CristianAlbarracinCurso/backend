@@ -23,7 +23,7 @@ const socketServer = new Server(httpServer);
 socketServer.on("connection", socketCb);
 export { socketServer };
 
-// template
+// handlebars
 server.engine(
   "handlebars",
   engine({
@@ -41,33 +41,32 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 server.use(cors());
 server.use("/public", express.static("public"));
-
-// middleware de sesión
 server.use(
   session({
     secret: "mysecret",
     resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false }, // Cambia a true si usas HTTPS en producción
+    saveUninitialized: false, // No guardar sesiones vacías
+    cookie: {
+      secure: false,
+      maxAge: 1000 * 60 * 60, // Duración de la cookie: 1 hora
+    },
   })
 );
-
 // Middleware global para pasar la sesión del usuario a todas las vistas
 server.use((req, res, next) => {
   if (req.session && req.session.user) {
-    res.locals.user = req.session.user; // Pasamos el usuario a las vistas
-    res.locals.isAuthenticated = true; // Autenticación correcta
-    res.locals.role = req.session.user.role; // Pasamos el rol del usuario
+    res.locals.user = req.session.user;
+    res.locals.isAuthenticated = true;
+    res.locals.role = req.session.user.role;
   } else {
-    res.locals.user = null; // Si no hay usuario, enviamos null
+    res.locals.user = null;
     res.locals.isAuthenticated = false;
-    res.locals.role = "guest"; // Rol predeterminado para no autenticados
+    res.locals.role = "guest";
   }
   next();
 });
 
 // Rutas
-
 server.use(router);
 
 // routers

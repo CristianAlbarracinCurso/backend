@@ -9,14 +9,12 @@ const productsViewRouter = Router();
 
 productsViewRouter.get("/admin", async (req, res) => {
   try {
-    const products = await productsManager.readAll(); // Obtener todos los productos
-    res.render("productsAdmin", { data: products }); // Pasar los productos a la vista como "data"
+    const products = await productsManager.readAll();
+    res.render("productsAdmin", { data: products });
   } catch (error) {
-    // Muestra un error en la respuesta si ocurre algún problema
     res.status(500).send({ message: "Error al obtener los productos" });
   }
 });
-
 
 productsViewRouter.get("/", showProducts);
 

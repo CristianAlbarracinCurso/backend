@@ -3,7 +3,6 @@ function isValidProduct(req, res, next) {
     const { title, code, price, stock, category, thumbnails, statusProduct } =
       req.body;
 
-    // Verificar si los campos obligatorios están presentes
     if (!title || !code || !price || !stock || !category) {
       const error = new Error(
         "Title, code, price, stock and category are required"
@@ -12,7 +11,6 @@ function isValidProduct(req, res, next) {
       throw error;
     }
 
-    // Asignar valores por defecto si thumbnails o statusProduct no están definidos
     req.body.thumbnails = thumbnails || "none.jpg";
     req.body.statusProduct = statusProduct !== undefined ? statusProduct : true;
 
@@ -33,7 +31,7 @@ function isValidUserRegister(req, res, next) {
       return next();
     }
   } catch (error) {
-    return next(error); 
+    return next(error);
   }
 }
 
@@ -65,8 +63,6 @@ function isValidUser(req, res, next) {
           .json({ error: "Usuario o contraseña incorrectos" });
       }
 
-      // Si el login es válido, continuar con el siguiente middleware
-      
       req.session.isAuthenticated = true;
       req.session.user = user;
       return next();
@@ -76,14 +72,12 @@ function isValidUser(req, res, next) {
   }
 }
 
-
 function authMiddleware(req, res, next) {
   if (req.session.isAuthenticated) {
     return next();
   } else {
-    return res.redirect('/login');
+    return res.redirect("/login");
   }
 }
 
-
-export { isValidProduct, isValidUser, isValidUserRegister,authMiddleware };
+export { isValidProduct, isValidUser, isValidUserRegister, authMiddleware };

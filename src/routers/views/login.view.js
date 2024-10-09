@@ -1,7 +1,7 @@
 import { Router } from "express";
 import fs from "fs";
 import path from "path";
-import { socketServer } from "../../../server.js"; // Asegúrate de que esta ruta sea correcta
+import { socketServer } from "../../../server.js";
 import __dirname from "../../../utils.js";
 
 const loginViewsRouter = Router();
@@ -20,14 +20,11 @@ loginViewsRouter.post("/", (req, res) => {
     const user = users.find((u) => u.username === username);
 
     if (user && user.password === password) {
-      // Asegúrate de validar la contraseña también
       req.session.isAuthenticated = true;
-      req.session.user = user; // Guardar usuario en la sesión
-
-      // Emitir un evento a través del socket si lo necesitas
+      req.session.user = user;
       socketServer.emit("user logged in", { username: user.name });
 
-      return res.json({ success: true }); // Respuesta en caso de éxito
+      return res.json({ success: true });
     } else {
       return res
         .status(401)
@@ -36,7 +33,6 @@ loginViewsRouter.post("/", (req, res) => {
   });
 });
 
-// Esta ruta debería ser la que renderiza la vista del formulario de login
 loginViewsRouter.get("/", (req, res, next) => {
   try {
     return res.render("login");
