@@ -55,7 +55,7 @@
     "statusProduct":  true,
     "stock": 120,
     "category": "SPORT",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "Kawasaki",
     "id": "74d010dace2d46e73aa37670"
   },
@@ -67,7 +67,7 @@
     "statusProduct":  true,
     "stock": 130,
     "category": "STREET",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "Yamaha",
     "id": "4388cf5b90947614fe64ea4b"
   },
@@ -79,7 +79,7 @@
     "statusProduct":  true,
     "stock": 130,
     "category": "STREET",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "Yamaha",
     "id": "44eab1ce25d44ac5cc6a9af8"
   },
@@ -91,7 +91,7 @@
     "statusProduct":  true,
     "stock": 100,
     "category": "NAKED",
-    "thumbnails": "62b6c1dc54cab1c6600f0efa.jpg",
+    "thumbnails": "none.jpg",
     "supplier": "Yamaha",
     "id": "62b6c1dc54cab1c6600f0efa"
   },
@@ -103,7 +103,7 @@
     "statusProduct":  true,
     "stock": 150,
     "category": "NAKED",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "Bajaj",
     "id": "44706ab25c25f7c044e63b12"
   },
@@ -115,7 +115,7 @@
     "statusProduct":  true,
     "stock": 140,
     "category": "STREET",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "Hero",
     "id": "c9524a88bb8ae618cb5be783"
   },
@@ -127,7 +127,7 @@
     "statusProduct":  true,
     "stock": 115,
     "category": "SPORT",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "TVS",
     "id": "835d553b0504ef21d764775a"
   },
@@ -139,7 +139,7 @@
     "statusProduct":  true,
     "stock": 30,
     "category": "NAKED",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "Honda",
     "id": "4274de149ca48fafb8d66441"
   },
@@ -151,7 +151,7 @@
     "statusProduct":  true,
     "stock": 15,
     "category": "ADVENTURE",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "KTM",
     "id": "7cf7fcc9caf71e0a4a9462a3"
   },
@@ -163,7 +163,7 @@
     "statusProduct":  true,
     "stock": 20,
     "category": "SPORT",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "Yamaha",
     "id": "68d68c0dca3ba7c86948632c"
   },
@@ -175,7 +175,7 @@
     "statusProduct":  true,
     "stock": 5,
     "category": "SPORT",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "Ducati",
     "id": "10f962e9b2259045ddcd3ab4"
   },
@@ -187,7 +187,7 @@
     "statusProduct":  true,
     "stock": 10,
     "category": "ADVENTURE",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "BMW",
     "id": "7b6391f7e1da655020f489b4"
   },
@@ -199,7 +199,7 @@
     "statusProduct":  true,
     "stock": 25,
     "category": "SPORT",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "kawasaki",
     "id": "5862f0c9f46f660f2ad27e3b"
   },
@@ -211,7 +211,7 @@
     "statusProduct":  true,
     "stock": 40,
     "category": "CLASSIC",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "royal enfield",
     "id": "a2497e0c71e64a6d87147aec"
   },
@@ -223,7 +223,7 @@
     "statusProduct":  true,
     "stock": 7,
     "category": "CRUISER",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "harley-davidson",
     "id": "cb90ed13cd6940a97c9a06ba"
   },
@@ -235,7 +235,7 @@
     "statusProduct":  true,
     "stock": 12,
     "category": "OFF-ROAD",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "suzuki",
     "id": "eb31121805101097fe6f03f6"
   },
@@ -247,7 +247,7 @@
     "statusProduct":  true,
     "stock": 18,
     "category": "NAKED",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "triumph",
     "id": "b56a1dd0a978a35d362b67f5"
   },
@@ -259,7 +259,7 @@
     "statusProduct":  true,
     "stock": 22,
     "category": "NAKED",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "yamaha",
     "id": "dc030470715d1111d0a27020"
   },
@@ -271,7 +271,7 @@
     "statusProduct":  true,
     "stock": 8,
     "category": "ADVENTURE",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "honda",
     "id": "5b7433512303a29e8ebecc31"
   },
@@ -283,7 +283,7 @@
     "statusProduct":  true,
     "stock": 16,
     "category": "NAKED",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "kawasaki",
     "id": "bf2685593cb1707e3bd7426a"
   },
@@ -295,7 +295,7 @@
     "statusProduct":  true,
     "stock": 13,
     "category": "ADVENTURE",
-    "thumbnails": "none",
+    "thumbnails": "none.jpg",
     "supplier": "suzuki",
     "id": "12aff9b90c907ca94c3b05b9"
   },
@@ -307,6 +307,7 @@
     "statusProduct":  true,
     "stock": 9,
     "category": "NAKED",
+    "thumbnails": "none.jpg",
     "supplier": "ducati",
     "id": "889a647f480a52c77d5bb884"
   },
@@ -318,6 +319,7 @@
     "statusProduct":  true,
     "stock": 4,
     "category": "SPORT",
+    "thumbnails": "none.jpg",
     "supplier": "bmw",
     "id": "cfdbeae9673a4a550df680f0"
   },
@@ -329,6 +331,7 @@
     "statusProduct":  true,
     "stock": 11,
     "category": "CLASSIC",
+    "thumbnails": "none.jpg",
     "supplier": "triumph",
     "id": "466782b50f8c80b0ed7baeee"
   },
@@ -340,6 +343,7 @@
     "statusProduct":  true,
     "stock": 12,
     "category": "CRUISER",
+    "thumbnails": "none.jpg",
     "supplier": "harley-davidson",
     "id": "3e070f497b47888b2cfb4834"
   },
@@ -351,6 +355,7 @@
     "statusProduct":  true,
     "stock": 6,
     "category": "NAKED",
+    "thumbnails": "none.jpg",
     "supplier": "ktm",
     "id": "0650f39bb0abc1263e89245a"
   },
@@ -362,6 +367,7 @@
     "statusProduct":  true,
     "stock": 17,
     "category": "CLASSIC",
+    "thumbnails": "none.jpg",
     "supplier": "royal enfield",
     "id": "207bc7619bd274a77c203a37"
   },
@@ -373,6 +379,7 @@
     "statusProduct":  true,
     "stock": 10,
     "category": "SPORT",
+    "thumbnails": "none.jpg",
     "supplier": "honda",
     "id": "86d3b3cefc52c157219a4bc1"
   },
@@ -384,6 +391,7 @@
     "statusProduct":  true,
     "stock": 30,
     "category": "OFF-ROAD",
+    "thumbnails": "none.jpg",
     "supplier": "yamaha",
     "id": "2ea02c394ab18eed04a23caf"
   },
@@ -395,6 +403,7 @@
     "statusProduct":  true,
     "stock": 5,
     "category": "SPORT",
+    "thumbnails": "none.jpg",
     "supplier": "suzuki",
     "id": "7e9f644084428f8a13db5b6f"
   },
@@ -406,6 +415,7 @@
     "statusProduct":  true,
     "stock": 14,
     "category": "ADVENTURE",
+    "thumbnails": "none.jpg",
     "supplier": "kawasaki",
     "id": "21be4ae569d6b95a7f937b3e"
   },
@@ -417,6 +427,7 @@
     "statusProduct":  true,
     "stock": 7,
     "category": "SCRAMBLER",
+    "thumbnails": "none.jpg",
     "supplier": "ducati",
     "id": "e85f724195716dcc4fc35c8d"
   },
@@ -428,6 +439,7 @@
     "statusProduct":  true,
     "stock": 8,
     "category": "CLASSIC",
+    "thumbnails": "none.jpg",
     "supplier": "bmw",
     "id": "94b95b38868e062cd2c7ba47"
   },
@@ -439,6 +451,7 @@
     "statusProduct":  true,
     "stock": 20,
     "category": "OFF-ROAD",
+    "thumbnails": "none.jpg",
     "supplier": "ktm",
     "id": "d03bc6f9e728ed59f2123b56"
   },
@@ -450,6 +463,7 @@
     "statusProduct":  true,
     "stock": 9,
     "category": "ADVENTURE",
+    "thumbnails": "none.jpg",
     "supplier": "triumph",
     "id": "7e45f1bdf398a3390d235005"
   },
@@ -461,6 +475,7 @@
     "statusProduct":  true,
     "stock": 26,
     "category": "NAKED",
+    "thumbnails": "none.jpg",
     "supplier": "honda",
     "id": "163deeda80f512b46499f327"
   },
@@ -472,6 +487,7 @@
     "statusProduct":  true,
     "stock": 19,
     "category": "CRUISER",
+    "thumbnails": "none.jpg",
     "supplier": "royal enfield",
     "id": "d663709004e267ab79823da2"
   }

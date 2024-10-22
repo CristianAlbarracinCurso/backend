@@ -1,0 +1,29 @@
+<h2>Usuarios on line</h2>
+<section class="d-flex flex-wrap justify-content-evenly">
+
+
+<ul class="list-group list-group-numbered" >  
+  {{#each data}}
+  <li class="list-group-item d-flex justify-content-between align-items-start  mb-1"
+  >
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">{{this.username}}</div>
+      <div>{{#if (eq role "1")}} Admin {{else}} User {{/if}}</div>
+     <small>
+      {{this.id}}
+     </small>
+    </div>
+    
+
+       {{#if (eq isOnline true)}} <span class="badge text-bg-success rounded-pill">*</span><span class=" ms-1"> On Line</span>  
+       {{else}} <span class="badge text-bg-danger rounded-pill">*</span><span class=" ms-1">Off Line</span> {{/if}}
+
+    
+    </li>
+
+    
+   {{/each}}
+</ul>
+
+
+</section>

@@ -1,4 +1,6 @@
 import usersManager from "../data/managers/users.fs.js";
+import { socketServer } from "../../server.js";
+
 async function getAllUsers(req, res, next) {
   try {
     const { role } = req.query;
@@ -18,36 +20,50 @@ async function getAllUsers(req, res, next) {
 async function getOneUser(req, res, next) {
   try {
     const { uid } = req.params;
-    const response = await usersManager.read(uid);
+    const user = await usersManager.read(uid);
 
-    if (response) {
-      return res.status(200).json({ statusCode: 200, response });
+    if (user) {
+      return res.render("profile", { user });
     } else {
-      const error = new Error("NOT FOUND PRODUCT");
-      error.statusCode = 404;
-      throw error;
+      return res.status(404).render("error", { message: "User not found" });
     }
   } catch (error) {
+    console.error("Error fetching user:", error);
     return next(error);
   }
-
 }
-
 
 async function createUser(req, res, next) {
   try {
     const data = req.body;
-    const { email, password } = data;
+    const { email, password, username } = data;
+
     if (!email || !password) {
-      const error = new Error("email and password are required");
-      error.statusCode = 400;
-      throw error;
+      return res.status(400).json({
+        statusCode: 400,
+        message: "El email y la contraseña son obligatorios",
+      });
     }
-    const userId = await usersManager.create(data);
+
+    const existingUser = await usersManager.findByEmail(email);
+    if (existingUser) {
+      return res.status(409).json({
+        statusCode: 409,
+        message: "El correo ya está registrado",
+      });
+    }
+    const userData = {
+      ...data,
+      role: data.role || "0",
+      photo: data.photo || "public/imgUser/userNone.jpg",
+      isOnline: false,
+    };
+
+    const userId = await usersManager.create(userData);
     return res.status(201).json({
       statusCode: 201,
       response: userId,
-      message: "User created successfully",
+      message: "Usuario creado exitosamente",
     });
   } catch (error) {
     return next(error);
@@ -93,6 +109,37 @@ async function destroyUser(req, res, next) {
     return next(error);
   }
 }
+async function findByEmail(email) {
+  return users.find((user) => user.email === email);
+}
+
+async function loginUser(req, res, next) {
+  try {
+    const { username, password } = req.body;
+
+    const user = await usersManager.authenticate(username, password);
+    console.log(user);
+    if (user) {
+      user.isOnline = true;
+      // await usersManager.update(user.id, user); // Actualiza el estado del usuario
+
+      req.session.isAuthenticated = true;
+      req.session.user = user;
+
+      socketServer.emit("user logged in", { username: user.username });
+
+      return res
+        .status(200)
+        .json({ success: true, message: "Inicio de sesión exitoso" });
+    } else {
+      return res
+        .status(401)
+        .json({ success: false, message: "Usuario o contraseña incorrectos." });
+    }
+  } catch (error) {
+    return next(error);
+  }
+}
 
 export {
   getAllUsers,
@@ -101,4 +148,6 @@ export {
   createUser,
   updateUser,
   destroyUser,
+  findByEmail,
+  loginUser,
 };

@@ -1,86 +1,74 @@
 [
   {
-    "name": "cristian",
-    "email": "1@coder.com",
-    "password": "1234",
-    "role": "admin",
-    "id": "2ccef4588786603a9ebd02b6"
+    "username": "Cristian",
+    "email": "q@q.com",
+    "password": "12345",
+    "role": "1",
+    "photo": "userNone.jpg",
+    "isOnline": true,
+    "id": "330b05ab89e0e8075af92906"
   },
   {
-    "name": "juli",
-    "email": "jule@coder.com",
-    "password": "12345678",
-    "role": "user",
-    "id": "020a6e9b8323a2f8c6f98f15"
+    "username": "Igna",
+    "email": "a@a.com",
+    "password": "12345",
+    "role": "0",
+    "photo": "userNone.jpg",
+    "isOnline": false,
+    "id": "6006c58aa69a01e8424eada5"
   },
   {
-    "name": "igna",
-    "email": "igna@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "c26940b3cd637fa4d4088a3d"
+    "username": "coder",
+    "email": "a@1a.com",
+    "password": "12345",
+    "role": "0",
+    "photo": "userNone.jpg",
+    "isOnline": false,
+    "id": "356d06da2eaff9d6af1cccd6"
   },
   {
-    "name": "matias",
-    "email": "matias@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "a4970acb68a2bd821c26788d"
+    "username": "a",
+    "email": "contaduria@medicos-municipales.org.ar",
+    "password": "123456",
+    "role": "0",
+    "photo": "userNone.jpg",
+    "isOnline": false,
+    "id": "e560e167ff810e48a8d557ed"
   },
   {
-    "name": "nico",
-    "email": "nico@coder.com",
-    "password": "1234",
-    "role": "admin",
-    "id": "d33f97847f07744e326d5e3c"
+    "username": "Cristian1",
+    "email": "contaduria1@medicos-municipales.org.ar",
+    "password": "123451",
+    "role": "0",
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "657b9ff7fba4e8fb4683fce6"
   },
   {
-    "name": "colo",
-    "email": "colo@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "10d2ad3fa3ef4084d484ae59"
+    "username": "Cristian11",
+    "email": "contaduria11@medicos-municipales.org.ar",
+    "password": "12345111",
+    "role": "0",
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "be360a914fc7520fff979f62"
   },
   {
-    "name": "colo",
-    "email": "colo@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "743ba177b142058018949bcc"
+    "username": "Cristian11",
+    "email": "albarracincristian.fv111@gmail.com",
+    "password": "12345111",
+    "role": "0",
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "3366a04861888550b2448737"
   },
   {
-    "name": "jose",
-    "email": "7@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "e038b09c1db2ffc53a8dfbd4"
-  },
-  {
-    "name": "pepe",
-    "email": "8@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "c0588bcd9aeb430d95bd877d"
-  },
-  {
-    "name": "tomas",
-    "email": "p@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "468db9e4346fa416657e4320"
-  },
-  {
-    "name": "ultimo",
-    "email": "u@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "14aac61cb608f80f206397f0"
-  },
-  {
-    "name": "ahorasi",
-    "email": "eu@coder.com",
-    "password": "1234",
-    "role": "user",
-    "id": "0d072e203d96f4ee6f129e20"
+    "username": "Cristianqqq",
+    "email": "contaduriaqqqq@medicos-municipales.org.ar",
+    "password": "12345qq",
+    "role": "0",
+    "photo": "public/imgUser/userNone.jpg",
+    "isOnline": false,
+    "id": "43b8e3d320c1ee43eef60553"
   }
 ]

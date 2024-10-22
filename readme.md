@@ -1,21 +1,25 @@
+# E-Commerce 1.0
 
-# E-Commerce
-
-Esta es una API simple de e-commerce desarrollada con Node.js y Express, que permite gestionar usuarios, productos y carritos de compras.
+Esta es una APP de Chat & E-Commerce simple desarrollada con Node.js y Express, que permite gestionar usuarios, productos y carritos de compras de forma visual.
+En esta version se mejoro el aspecto visual, se modifico el chat para que obtenga los datos del login y usarlo como nombre de usuario, eliminando el modal que solicitaba ese dato. Tambien se adapto mejor a los requerimientos de la entrega 2 y se agrego una vista de usuarios en linea. Esta ultima funcionaria mejor con la opcion de escribir en el Json el usuario que esta Online, pero esto reinicia el servidor y borra la session por lo que se dejo para poder manejarlo mejor en mongoDB. 
 
 
 ## Caracteristicas
 - Gestión de usuarios
 - Gestión de productos
-- Gestión de carritos de compras
-- Agregar productos a carritos con cantidades personalizadas
+- APIS de Gestión de carritos de compras y agregar productos a carritos con cantidades personalizadas, falta la parte visual
+- Se agregaron vistas con handlebars
 - Persistencia de datos en archivos JSON
+
 ## Estructura de Archivos
 
 ```
 ├──public
 │  ├── img
-│  └── imgProducts
+│  ├── imgProducts
+│  ├── scripts
+│  ├── css
+│  └── imgUser
 ├── src 
 │   ├── controllers
 │   │   ├── carts.controllers.js
@@ -30,12 +34,35 @@ Esta es una API simple de e-commerce desarrollada con Node.js y Express, que per
 │   │       ├── carts.fs.js
 │   │       ├── products.fs.js
 │   │       └── users.fs.js
+│   ├── middlewares
+│   │   ├── errorHandler.js
+│   │   ├── pathHandler.js
+│   │   └── validateHandler.js
 │   ├── routes
 │   │   ├── api
 │   │   │   ├── carts.routes.js
+│   │   │   ├── index.routes.js
 │   │   │   ├── products.routes.js
 │   │   │   └── users.routes.js
-│   │   └── index.router.js
+│   │   ├──views
+│   │   │   ├── carts.view.js
+│   │   │   ├── chats.view.js
+│   │   │   ├── index.view.js
+│   │   │   ├── login.view.js
+│   │   │   ├── products.view.js
+│   │   │   ├── register.view.js
+│   │   │   └── users.view.js
+│   │   ├── index.router.js
+│   │   └── index.socket.js
+│   └── views
+│       ├── layouts
+│       │   └── main.handlebars
+│       ├── chats.handlebars
+│       ├── index.handlebars
+│       ├── login.handlebars
+│       ├── products.handlebars
+│       ├── register.handlebars
+│       └── user.router.js
 ├── server.js
 ├── utils.js
 └── README.md
@@ -137,7 +164,5 @@ Eliminar Un Usuario:
 
 
 ## Proximamente
-- Manejo de Pull Request
 - Integración de una base de datos real (MongoDB)
-- Autenticación y autorización para usuarios
 - Validación más robusta de las entradas de datos

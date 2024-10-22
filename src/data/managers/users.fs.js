@@ -6,6 +6,7 @@ class UsersManager {
     this.path = path;
     this.exists();
   }
+
   exists() {
     const exist = fs.existsSync(this.path);
     if (!exist) {
@@ -15,6 +16,7 @@ class UsersManager {
       console.log("users file already exists");
     }
   }
+
   async readAll(role) {
     try {
       const data = await fs.promises.readFile(this.path, "utf-8");
@@ -87,6 +89,35 @@ class UsersManager {
     } catch (error) {
       console.log(error);
       throw error;
+    }
+  }
+  // Buscar el usuario por email
+  async findByEmail(email) {
+    const users = await this.readAll();
+    return users.find((user) => user.email === email);
+  }
+
+  async updateUser(userId, updatedData) {
+    try {
+      const users = await this.readAll();
+      const userIndex = users.findIndex((user) => user.id === userId);
+
+      if (userIndex === -1) throw new Error("Usuario no encontrado");
+      users[userIndex] = { ...users[userIndex], ...updatedData };
+
+      await fs.promises.writeFile(this.path, JSON.stringify(users, null, 2));
+    } catch (error) {
+      throw error;
+    }
+  }
+  async authenticate(username, password) {
+    const users = await this.readAll();
+    const user = users.find((user) => user.username === username);
+
+    if (user && user.password === password) {
+      return user;
+    } else {
+      throw new Error("Usuario o contraseña incorrectos");
     }
   }
 }
