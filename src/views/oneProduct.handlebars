@@ -1,0 +1,19 @@
+<h2>Detalle del Producto</h2>
+<section class="d-flex justify-content-center">
+  <div class="card my-2" style="width: 18rem;">
+    <p class="card-text">{{one.category}} - {{one.supplier}}</p>
+    <img
+      src="../public/imgProducts/{{one.photo}}"
+      class="card-img-top"
+      alt="{{one.title}}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{one.title}}
+        <br />
+        <small>{{one.description}}</small>
+      </h5>
+      <p><small> ${{one.price}}</small></p>
+      <a href="/products" class="btn btn-secondary">Volver</a>
+    </div>
+  </div>
+</section>

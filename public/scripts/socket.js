@@ -10,13 +10,13 @@ socket.on("all messages", (data) => {
             src="public/imgUser/userNone.jpg"
           />
           <div class="chat_info">
-            <div class="contact_name">${each.username.toUpperCase()} </div>
-            <div class="contact_msg">${each.message}
-            </div>
-          </div>
-          <div class="chat_status">
-            <div class="chat_date">Usuario</div>
-            <div class="chat_new grad_pb">  </div>
+        <div class="contact_name">${
+          each.name ? each.name.toUpperCase() : "Anónimo"
+        }</div>
+        <div class="contact_msg">${each.message}</div>
+      </div>
+          <div class="contact_msg">
+            <div >${each.timestamp || ""}</div>
           </div>
         </div>`
     )
@@ -27,7 +27,12 @@ socket.on("all messages", (data) => {
 document.querySelector("#text").addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
     const newMessage = document.querySelector("#text").value;
-    socket.emit("new message", { username, message: newMessage });
+    const timestamp = new Date().toLocaleTimeString();
+    socket.emit("new message", {
+      name: username,
+      message: newMessage,
+      timestamp,
+    });
     event.target.value = "";
   }
 });

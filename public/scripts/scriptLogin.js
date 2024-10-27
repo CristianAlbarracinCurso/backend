@@ -4,10 +4,10 @@ document
     event.preventDefault();
     const formData = new FormData(this);
     const data = {
-      username: formData.get("username"),
+      email: formData.get("email"),
       password: formData.get("password"),
     };
-
+    
     fetch("/users/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

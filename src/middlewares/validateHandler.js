@@ -1,6 +1,6 @@
 function isValidProduct(req, res, next) {
   try {
-    const { title, code, price, stock, category, thumbnails, statusProduct } =
+    const { title, code, price, stock, category, photo, statusProduct } =
       req.body;
 
     if (!title || !code || !price || !stock || !category) {
@@ -11,7 +11,7 @@ function isValidProduct(req, res, next) {
       throw error;
     }
 
-    req.body.thumbnails = thumbnails || "none.jpg";
+    req.body.photo = photo || "none.jpg";
     req.body.statusProduct = statusProduct !== undefined ? statusProduct : true;
 
     return next();
@@ -22,8 +22,8 @@ function isValidProduct(req, res, next) {
 
 function isValidUserRegister(req, res, next) {
   try {
-    const { email, password, username } = req.body;
-    if (!email || !password || !username) {
+    const { email, password, name } = req.body;
+    if (!email || !password || !name) {
       const error = new Error("email, password and username are required");
       error.statusCode = 400;
       throw error;

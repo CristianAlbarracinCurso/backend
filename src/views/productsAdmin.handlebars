@@ -1,12 +1,72 @@
-<h2>ADMINISTRADOR de productos</h2>
-<section class="d-flex flex-wrap justify-content-evenly">
-  {{#each data}}
+<p>Agregar un Producto</p>
+<div style="width: 50%;" class="mx-auto">
+  <form id="addProductForm" action="/api/products" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Título</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="code" class="form-label">Código</label>
+      <input type="text" class="form-control" id="code" name="code" required />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Descripción</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        name="description"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="stock" class="form-label">Stock</label>
+      <input
+        type="number"
+        class="form-control"
+        id="stock"
+        name="stock"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Precio</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        name="price"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Categoría</label>
+      <input
+        type="text"
+        class="form-control"
+        id="category"
+        name="category"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar Producto</button>
+  </form>
+</div>
 
+<p>Administrar Productos</p>
+<section class="d-flex flex-wrap justify-content-evenly my-3">
+  {{#each data}}
     <div class="card mb-3" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-4">
           <img
-            src="../../public/imgProducts/{{this.thumbnails}} "
+            src="../../public/imgProducts/{{this.photo}}"
             class="img-fluid rounded-start"
             alt="..."
           />
@@ -16,18 +76,35 @@
             <h5 class="card-title">{{this.title}}</h5>
             <small class="text-body-secondary">{{this.description}}</small>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><a
+              <li class="list-group-item">
+                <a
                   href="#"
-                  class="card-link"
-                >Modificar Producto</a></li>
-              <li class="list-group-item"><a href="#" class="card-link">Eliminar
-                  Producto</a></li>
+                  class="card-link modify-product"
+                  data-id="{{this._id}}"
+                  data-title="{{this.title}}"
+                  data-description="{{this.description}}"
+                  data-code="{{this.code}}"
+                  data-price="{{this.price}}"
+                  data-status="{{this.statusProduct}}"
+                  data-stock="{{this.stock}}"
+                  data-category="{{this.category}}"
+                  data-supplier="{{this.supplier}}"
+                  data-photo="{{this.photo}}"
+                >
+                  Modificar Producto
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a
+                  href="#"
+                  class="card-link delete-product"
+                  data-id="{{this._id}}"
+                >Eliminar Producto</a>
+              </li>
             </ul>
-
           </div>
         </div>
       </div>
     </div>
-
   {{/each}}
 </section>

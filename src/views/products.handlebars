@@ -1,18 +1,62 @@
 <h2>Listado de productos</h2>
+
+<!-- Formulario de filtrado por categoría -->
+<form id="categoryFilterForm" class="mb-3">
+  <label for="categorySelect">Filtrar por categoría:</label>
+  <select id="categorySelect" class="form-select" name="category">
+    <option value="">Todas</option>
+    <option value="STREET">STREET</option>
+    <option value="SPORT">SPORT</option>
+    <option value="NAKED">NAKED</option>
+    <option value="ADVENTURE">ADVENTURE</option>
+    <option value="CLASSIC">CLASSIC</option>
+    <option value="CRUISER">CRUISER</option>
+    <option value="OFF-ROAD">OFF-ROAD</option>
+    <option value="SCRAMBLER">SCRAMBLER</option>
+
+    <!-- Agrega más categorías según sea necesario -->
+  </select>
+  <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+
 <section class="d-flex flex-wrap justify-content-evenly">
   {{#each data}}
-
     <div class="card my-2" style="width: 18rem;">
       <img
-        src="public/imgProducts/{{this.thumbnails}}"
+        src="public/imgProducts/{{this.photo}}"
         class="card-img-top"
         alt="{{this.title}}"
       />
       <div class="card-body">
+        <p class="card-text">{{this.category}}</p>
         <h5 class="card-title">{{this.title}}</h5>
-        <p class="card-text">{{this.description}}</p>
+        <h5 class="card-title">${{this.price}}.-</h5>
         <a href="/products/{{this.id}}" class="btn btn-primary">Info</a>
       </div>
     </div>
   {{/each}}
 </section>
+
+<nav
+  aria-label="Page navigation example"
+  class="my-3 mx-auto w-75 d-flex justify-content-center align-items-center p-3"
+>
+  <ul class="pagination justify-content-center">
+    {{#if hasPrevPage}}
+      <li class="page-item">
+        <a class="page-link" href="/products?page={{prevPage}}">Volver</a>
+      </li>
+    {{/if}}
+    <li class="page-item active">
+      <a
+        class="page-link"
+        href="/products?page={{currentPage}}"
+      >{{currentPage}}</a>
+    </li>
+    {{#if hasNextPage}}
+      <li class="page-item">
+        <a class="page-link" href="/products?page={{nextPage}}">Avanzar</a>
+      </li>
+    {{/if}}
+  </ul>
+</nav>

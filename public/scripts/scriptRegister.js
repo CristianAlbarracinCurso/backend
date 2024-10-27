@@ -4,12 +4,12 @@ document
     event.preventDefault();
     const formData = new FormData(this);
     const data = {
-      username: formData.get("username"),
+      name: formData.get("name"),
       email: formData.get("email"),
       password: formData.get("password"),
     };
 
-    if (!data.username || !data.email || !data.password) {
+    if (!data.name || !data.email || !data.password) {
       Swal.fire({
         icon: "error",
         title: "Error",

@@ -17,9 +17,11 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+  const userid = "{{user.id}}";
+</script>
 
     <link rel="stylesheet" href="/public/css/css.css" />
-    <title>Ecommerce</title>
   </head>
   <body>
 
@@ -42,8 +44,7 @@
             <a class="nav-item nav-link active" href="/">Home</a>
 
             {{#if isAuthenticated}}
-              {{#if (eq role "1")}}
-                <!-- Si el rol es admin -->
+              {{#if (eq role "admin")}}
                 <a class="nav-item nav-link" href="/products">Productos</a>
                 <a class="nav-item nav-link" href="/products/admin">Admin
                   Products</a>
@@ -51,7 +52,7 @@
 
                 <a
                   class="nav-item nav-link"
-                  href="/users/{{user.id}}"
+                  href="/users/profile/{{user._id}}"
                 >Perfil</a>
                 <a class="nav-item nav-link" href="/chats">Chat</a>
                 <a class="nav-item nav-link" href="/logout">Cerrar sesión</a>
@@ -60,7 +61,7 @@
                 <a class="nav-item nav-link" href="/products">Productos</a>
                 <a
                   class="nav-item nav-link"
-                  href="/users/{{user.id}}"
+                  href="/users/profile/{{user._id}}"
                 >Perfil</a>
                 <a class="nav-item nav-link" href="/chats">Chat</a>
                 <a class="nav-item nav-link" href="/logout">Cerrar sesión</a>
@@ -95,6 +96,27 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/public/scripts/scriptLogin.js"></script>
+
+{{#if isLoginPage}}
+  <script src="/public/scripts/scriptLogin.js"></script>
+{{/if}}
+
+{{#if isAdminPage}}
+ <script src="/public/scripts/scriptAdmin.js"></script>
+ <script src="/public/scripts/scriptModifyProduct.js"></script>
+  <script src="/public/scripts/scriptAddProduct.js"></script>
+ {{/if}}
+
+{{#if isAdminUserPage}}
+ <script src="/public/scripts/scriptAdminUser.js"></script>
+
+ {{/if}}
+
+{{#if isModifyUserPage}}
+ <script src="/public/scripts/scriptModifyUser.js"></script>
+ {{/if}}
+
+
+
   </body>
 </html>

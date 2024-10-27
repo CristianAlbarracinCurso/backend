@@ -6,13 +6,14 @@ import {
   updateUser,
   destroyUser,
   loginUser,
+  
 } from "../../controllers/users.controllers.js";
 
-const usersRouter = Router();
-usersRouter.get("/", readAll);
-usersRouter.get("/:uid", getOneUser);
-usersRouter.post("/", createUser);
-usersRouter.put("/:uid", updateUser);
-usersRouter.delete("/:uid", destroyUser);
-usersRouter.post("/login", loginUser);
-export default usersRouter;
+const usersApiRouter = Router();
+usersApiRouter.get("/", readAll);
+usersApiRouter.get("/:uid", getOneUser);
+usersApiRouter.put("/:uid", updateUser);
+usersApiRouter.delete("/:uid", destroyUser);
+usersApiRouter.post("/login", loginUser);
+
+export default usersApiRouter;

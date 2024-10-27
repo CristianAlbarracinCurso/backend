@@ -2,7 +2,7 @@ import { socketServer } from "../../server.js";
 
 let allMessages = [
   {
-    username: "Server",
+    name: "Server",
     message: "Bienvenidos",
   },
 ];

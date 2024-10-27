@@ -6,14 +6,16 @@ import {
   createProduct,
   updateProduct,
   destroyProduct,
+  paginate,
 } from "../../controllers/products.controllers.js";
 
-const productsRouter = Router();
+const productsApiRouter = Router();
 
-productsRouter.get("/", getAllProducts);
-productsRouter.get("/:pid", getOneProduct);
-productsRouter.post("/", isValidProduct, createProduct);
-productsRouter.put("/:pid", updateProduct);
-productsRouter.delete("/:pid", destroyProduct);
+productsApiRouter.post("/", isValidProduct, createProduct);
+productsApiRouter.get("/", getAllProducts);
+productsApiRouter.get("/paginate", paginate);
+productsApiRouter.get("/:pid", getOneProduct);
+productsApiRouter.put("/:pid", updateProduct);
+productsApiRouter.delete("/:pid", destroyProduct);
 
-export default productsRouter;
+export default productsApiRouter;
