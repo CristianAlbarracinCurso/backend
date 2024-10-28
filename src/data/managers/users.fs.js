@@ -67,7 +67,6 @@ class UsersManager {
       await fs.promises.writeFile(this.path, stringAll);
       return all[index];
     } catch (error) {
-      console.log(error);
       throw error;
     }
   }
@@ -87,7 +86,6 @@ class UsersManager {
       await fs.promises.writeFile(this.path, stringAll);
       return userToDelete;
     } catch (error) {
-      console.log(error);
       throw error;
     }
   }

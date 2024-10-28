@@ -51,14 +51,14 @@ server.use(
   session({
     secret: "mysecret",
     resave: false,
-    saveUninitialized: false, // No guardar sesiones vacías
+    saveUninitialized: false, 
     cookie: {
       secure: false,
-      maxAge: 1000 * 60 * 60, // Duración de la cookie: 1 hora
+      maxAge: 1000 * 60 * 60, 
     },
   })
 );
-// Middleware global para pasar la sesión del usuario a todas las vistas
+
 server.use(async (req, res, next) => {
   if (req.session && req.session.user) {
     // Consultar MongoDB para obtener el rol del usuario

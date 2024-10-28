@@ -3,10 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   deleteLinks.forEach((link) => {
     link.addEventListener("click", function (event) {
-      event.preventDefault(); // Evita el comportamiento por defecto del enlace
-      const productId = this.dataset.id; // Obtiene el ID del producto
+      event.preventDefault(); 
+      const productId = this.dataset.id; 
 
-      // Muestra SweetAlert para confirmar la eliminación
       Swal.fire({
         title: "¿Estás seguro?",
         text: "¡No podrás deshacer esto!",
@@ -18,22 +17,18 @@ document.addEventListener("DOMContentLoaded", () => {
         cancelButtonText: "Cancelar",
       }).then((result) => {
         if (result.isConfirmed) {
-          // Si el usuario confirma, realiza la eliminación
-          console.log(`Eliminando el producto con ID: ${productId}`);
-          console.log(`Eliminando el producto con ID: ../products/${productId}`);
+    
           fetch(`/api/products/${productId}`, {
             method: "DELETE",
           })
             .then((response) => {
-              console.log(response);
               if (response.ok) {
                 Swal.fire(
                   "Eliminado!",
                   "El producto ha sido eliminado.",
                   "success"
                 ).then(() => {
-                  // Recargar la página o eliminar el producto del DOM
-                  location.reload(); // O puedes eliminar el producto del DOM
+                location.reload(); 
                 });
               } else {
                 Swal.fire(

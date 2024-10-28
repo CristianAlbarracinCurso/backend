@@ -1,15 +1,15 @@
 # E-Commerce 1.0
 
-Esta es una APP de Chat & E-Commerce simple desarrollada con Node.js y Express, que permite gestionar usuarios, productos y carritos de compras de forma visual.
-En esta version se mejoro el aspecto visual, se modifico el chat para que obtenga los datos del login y usarlo como nombre de usuario, eliminando el modal que solicitaba ese dato. Tambien se adapto mejor a los requerimientos de la entrega 2 y se agrego una vista de usuarios en linea. Esta ultima funcionaria mejor con la opcion de escribir en el Json el usuario que esta Online, pero esto reinicia el servidor y borra la session por lo que se dejo para poder manejarlo mejor en mongoDB. 
+Esta es una APP de Chat & E-Commerce simple desarrollada con Node.js y Express, que permite gestionar usuarios, productos y carritos de compras de forma visual integrando una base de datos real en MongoDB.
+En esta version se mejoró el aspecto visual, se modifico el chat para que obtenga los datos del login y usarlo como nombre de usuario, eliminando el modal que solicitaba ese dato. Se agrego una vista de usuarios en linea en donde un administrador puede eliminar un usuario y tambien un profile que deja actualizar los datos menos el Rol. Tambien se realizo paginacion en los productos y se creo una pagina para administrarlos permitiendo cambiar valor, stock y detalle de los mismos, como tambien agregar nuevos.
 
 
 ## Caracteristicas
 - Gestión de usuarios
 - Gestión de productos
-- APIS de Gestión de carritos de compras y agregar productos a carritos con cantidades personalizadas, falta la parte visual
+- APIS de Gestión de carritos de compras y agregar productos a carritos con cantidades personalizadas
 - Se agregaron vistas con handlebars
-- Persistencia de datos en archivos JSON
+- Persistencia de datos en base de datos online
 
 ## Estructura de Archivos
 
@@ -85,6 +85,7 @@ Copiar código
 npm run dev
 ```
 El servidor estará corriendo en http://localhost:8080.
+
 ## Endpoints
 
 - Users
@@ -163,6 +164,25 @@ Eliminar Un Usuario:
 ![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/deleteUser.png "Eliminar Un Usuario")
 
 
-## Proximamente
-- Integración de una base de datos real (MongoDB)
-- Validación más robusta de las entradas de datos
+### Carrito
+
+Crear Carrito: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/createCart.png "Crear Carrito")
+
+Actualizar Un Carrito: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/updateUser.png "Actualizar Carrito")
+
+Obtener un Carrito: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/getOneCart.png "Obtener Un Carrito")
+
+Obtener Todos Los Carrito: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/getAllCarts.png "Obtener Todos los Carrito")
+
+Obtener Todos Los Carrito: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/getAllCartsByUser.png "Obtener Todos los Carrito de un usuario")
+
+Eliminar Un Carrito: 
+![alt text](https://github.com/CristianAlbarracinCurso/backend/raw/main/common/img/deleteCart.png "Eliminar Un Carrito")
+
+
+

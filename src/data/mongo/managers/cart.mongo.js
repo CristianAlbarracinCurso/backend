@@ -15,8 +15,7 @@ class CartsMongoManager {
   async readAll(filter) {
     try {
       return await Carts.find(filter)
-        .populate("user_id", "name email") // Población de información del usuario
-        //.populate("products.product_id", "title price photo") // Población de información del producto
+        .populate("user_id", "name email")
         .lean();
     } catch (error) {
       throw new Error(`Error reading all carts: ${error.message}`);
@@ -70,7 +69,34 @@ class CartsMongoManager {
     }
   }
 
-  async readCartsByUserId(userId) {
+  async totalCartsByUser(userId) {
+    if (!userId) {
+      throw new Error("userId is required");
+    }
+
+    try {
+      const allCarts = await this.readAll(); 
+
+      const userCarts = allCarts.filter((cart) => {
+
+        return cart.user_id._id.toString() === userId;
+      });
+
+      const totalItems = userCarts.reduce((acc, cart) => {
+        return acc + cart.quantity; 
+      }, 0);
+
+
+      return {
+        totalItems,
+      };
+    } catch (error) {
+      console.error("Error retrieving carts:", error); 
+      throw error; 
+    }
+  }
+
+  /*9async readCartsByUserId(userId) {
     try {
       const response = await Carts.find({ user_id: userId }).lean();
       if (!response.length) {
@@ -80,50 +106,49 @@ class CartsMongoManager {
     } catch (error) {
       throw new Error(`Error finding carts by user ID: ${error.message}`);
     }
-  }
+  }*/
 
   async calculatePrice(userId) {
     try {
       const total = await Carts.aggregate([
-        { $match: { user_id: new Types.ObjectId(userId) } }, // Filtrar por user_id
+        { $match: { user_id: new Types.ObjectId(userId) } }, 
         {
-          $unwind: "$products", // Descomponer el arreglo de productos
+          $unwind: "$products", 
         },
         {
           $lookup: {
-            from: "products", // Nombre de la colección de productos
-            localField: "products.product_id", // Campo en Carts que contiene el product_id
-            foreignField: "_id", // Campo en products que corresponde al id del producto
-            as: "productDetails", // Nombre del nuevo campo que contendrá la información del producto
+            from: "products", 
+            localField: "products.product_id", 
+            foreignField: "_id", 
+            as: "productDetails", 
           },
         },
         {
           $unwind: {
             path: "$productDetails",
-            preserveNullAndEmptyArrays: true, // Para depuración, incluye carritos sin productos
+            preserveNullAndEmptyArrays: true, 
           },
         },
         {
           $addFields: {
             subtotal: {
-              $multiply: ["$productDetails.price", "$products.quantity"], // Calcular subtotal (precio * cantidad)
+              $multiply: ["$productDetails.price", "$products.quantity"], 
             },
           },
         },
         {
           $group: {
             _id: null,
-            total: { $sum: "$subtotal" }, // Sumar todos los subtotales
+            total: { $sum: "$subtotal" }, 
           },
         },
       ]);
-  
-      return total.length ? total[0].total : 0; // Retornar el total calculado o 0 si no hay carritos
+
+      return total.length ? total[0].total : 0; 
     } catch (error) {
       throw new Error(`Error calculating total: ${error.message}`);
     }
   }
-  
 
   async updateItemQuantity(productId, quantity) {
     try {

@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(result.value), // Envía todos los campos
+            body: JSON.stringify(result.value), 
           })
             .then((response) => {
               if (response.ok) {
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   "Los cambios se han guardado.",
                   "success"
                 ).then(() => {
-                  location.reload(); // Recarga la página para mostrar los cambios
+                  location.reload(); 
                 });
               } else {
                 Swal.fire(

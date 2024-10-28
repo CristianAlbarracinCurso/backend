@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   deleteLinks.forEach((link) => {
     link.addEventListener("click", function (event) {
-      event.preventDefault(); // Evita el comportamiento por defecto del enlace
-      const userId = this.dataset.id; // Obtiene el ID del usuario
+      event.preventDefault();
+      const userId = this.dataset.id; 
 
-      // Muestra SweetAlert para confirmar la eliminación
+      // Muestra confirmar la eliminación
       Swal.fire({
         title: "¿Estás seguro?",
         text: "¡No podrás deshacer esto!",
@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
         cancelButtonText: "Cancelar",
       }).then((result) => {
         if (result.isConfirmed) {
-          // Realiza la solicitud para eliminar el usuario
           fetch(`/api/users/${userId}`, {
             method: "DELETE",
           })
@@ -29,8 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   "El usuario ha sido eliminado.",
                   "success"
                 ).then(() => {
-                  // Recargar la página o eliminar el usuario del DOM
-                  location.reload(); // O puedes eliminar el usuario del DOM
+                  location.reload(); 
                 });
               } else {
                 Swal.fire("Error!", "No se pudo eliminar el usuario.", "error");

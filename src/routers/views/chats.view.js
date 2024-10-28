@@ -8,7 +8,7 @@ chatsViewsRouter.get("/", (req, res, next) => {
   try {
     const user = req.session.user;
     if (user) {
-      res.render("chats", { user }); // Pasa el objeto `user` a la vista
+      res.render("chats", { user }); 
     } else {
       res.redirect("/users/login"); // Redirecciona al login si no hay usuario en sesión
     }

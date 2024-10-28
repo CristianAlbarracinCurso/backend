@@ -1,6 +1,5 @@
 import Users from "../models/users.model.js";
 import mongoose from "mongoose";
-//import userSyncManager from '../../sync/users.sync.js';
 
 class UsersMongoManager {
   constructor() {}
@@ -8,7 +7,6 @@ class UsersMongoManager {
   async create(data) {
     try {
       const user = await Users.create(data);
-      //await userSyncManager.syncUsers();
       return user;
     } catch (error) {
       throw error;
@@ -26,7 +24,7 @@ class UsersMongoManager {
   }
 
   async getAllUsers() {
-    return await Users.find().select("name role isOnline").lean(); // Retorna objetos planos
+    return await Users.find().select("name role isOnline").lean(); 
   }
 
 
@@ -54,7 +52,6 @@ class UsersMongoManager {
   async destroy(uid) {
     try {
       const deletedUser = await Users.findByIdAndDelete(uid);
-      // await userSyncManager.syncUsers();
       return deletedUser;
     } catch (error) {
       throw error;
@@ -72,8 +69,8 @@ class UsersMongoManager {
 
   async findByEmail(email) {
     try {
-      const users = await this.readAll(); // Asegúrate de que readAll esté obteniendo todos los usuarios correctamente  
-      return users.find((user) => user.email === email); // Encuentra el usuario que coincide con el correo
+      const users = await this.readAll(); 
+      return users.find((user) => user.email === email); 
     } catch (error) {
       throw new Error("Error al buscar el usuario por email");
     }
@@ -83,17 +80,7 @@ class UsersMongoManager {
     return await Users.findByIdAndUpdate(userId, updatedData, { new: true });
   }
 
-//async update(uid, data) {
- // try {
- //   const updatedUser = await Users.findByIdAndUpdate(uid, data, {
- //     new: true,
- //   });
- //   //await userSyncManager.syncUsers();
- //   return updatedUser;
- // } catch (error) {
- //   throw error;
- // }
-//}
+
 }
 const usersMongoManager = new UsersMongoManager();
 export default usersMongoManager;

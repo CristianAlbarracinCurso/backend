@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "El producto se ha añadido correctamente.",
         "success"
       );
-      // Opcional: puedes redirigir o recargar la página aquí
-      addProductForm.reset(); // Limpiar el formulario
+
+      addProductForm.reset(); 
     } else {
       Swal.fire("Error", "No se pudo agregar el producto", "error");
     }

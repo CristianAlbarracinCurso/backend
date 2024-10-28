@@ -49,6 +49,7 @@ class CartsManager {
     }
   }
 
+  
   async update(id, newData) {
     try {
       const all = await this.readAll();

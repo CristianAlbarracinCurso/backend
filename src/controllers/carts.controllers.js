@@ -116,7 +116,7 @@ async function addCartProducts(req, res, next) {
         parseInt(cart.products[productIndex].quantity, 10) +
         parseInt(quantity, 10);
     } else {
-      // Si el producto no esta en el carrito
+
       cart.products.push({
         product_id: pid,
         quantity: parseInt(quantity, 10),
@@ -127,6 +127,19 @@ async function addCartProducts(req, res, next) {
       message: "PRODUCT ADDED TO CART",
       statusCode: 201,
       response: updatedCart._id,
+    });
+  } catch (error) {
+    return next(error);
+  }
+}
+async function totalCartsByUser (req, res, next) {
+  try {
+    const { uid } = req.params;
+    const response = await cartsMongoManager.totalCartsByUser(uid);
+    return res.status(200).json({
+      message: "TOTAL CARS BY USER",
+      statusCode: 201,
+      response: response,
     });
   } catch (error) {
     return next(error);
@@ -155,4 +168,5 @@ export {
   readAll,
   destroyCart,
   updateCart,
+  totalCartsByUser
 };

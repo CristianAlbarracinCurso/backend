@@ -4,7 +4,6 @@ import productsMongoManager from "../data/mongo/managers/product.mongo.js";
 async function createProduct(req, res, next) {
   try {
     const product = req.body;
-    console.log(req.body);
     const response = await productsMongoManager.create(product);
     return res.status(201).json({
       message: "PRODUCT CREATED",
@@ -123,6 +122,8 @@ async function showProducts(req, res, next) {
         hasNextPage: products.hasNextPage,
         prevPage: products.prevPage,
         nextPage: products.nextPage,
+        isProductsPage: true,
+        userId: req.session.user._id
       });
     } else {
       const error = new Error("NOT FOUND PRODUCTS");

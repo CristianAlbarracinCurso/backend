@@ -84,7 +84,6 @@ class ProductsManager {
       await fs.promises.writeFile(this.path, stringAll);
       return productToDelete;
     } catch (error) {
-      console.log(error);
       throw error;
     }
   }

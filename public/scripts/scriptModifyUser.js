@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const editProfileForm = document.getElementById("editProfileForm");
 
-  // Obtiene el userId desde el atributo data-user-id del formulario
+
   const userId = editProfileForm.getAttribute("data-user-id");
 
   editProfileForm.addEventListener("submit", async (e) => {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Error",
         text: "Por favor, completa todos los campos obligatorios.",
       });
-      return; // Detiene la ejecución si hay campos vacíos
+      return; 
     }
 
     const formData = new FormData(editProfileForm);
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       body: JSON.stringify({
         name: formData.get("name"),
         email: formData.get("email"),
-        password: password || null, // Envía null si no se cambió
+        password: password || null, 
       }),
     });
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (data.logout) {
         Swal.fire("Perfil actualizado", "Por favor, vuelve a iniciar sesión", "info").then(() => {
-          window.location.href = "/logout"; // Ruta de logout que destruye la sesión
+          window.location.href = "/logout"; 
         });
       } else {
         Swal.fire("Perfil actualizado!", "Los cambios se han guardado.", "success");

@@ -56,7 +56,6 @@ class ProductsMongoManager {
   async destroy(pid) {
     try {
       const result = await Products.findByIdAndDelete(pid);
-      console.log("envio de info", pid);
       if (!result) {
         throw new Error("Product not found");
       }

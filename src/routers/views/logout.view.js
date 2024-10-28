@@ -6,9 +6,8 @@ logoutViewsRouter.get("/", async (req, res) => {
   try {
     // Verificar si hay un usuario en la sesión
     if (req.session.user) {
-      const userId = req.session.user._id; // Obtener el ID del usuario de la sesión
+      const userId = req.session.user._id; 
 
-      // Actualizar el estado isOnline a false en la base de datos
       await usersMongoManager.update(userId, { isOnline: false });
     }
 

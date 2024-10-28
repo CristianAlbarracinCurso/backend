@@ -1,3 +1,7 @@
+<script>
+  const userId = "{{userId}}";
+</script>
+
 <h2>Listado de productos</h2>
 
 <!-- Formulario de filtrado por categoría -->
@@ -13,8 +17,6 @@
     <option value="CRUISER">CRUISER</option>
     <option value="OFF-ROAD">OFF-ROAD</option>
     <option value="SCRAMBLER">SCRAMBLER</option>
-
-    <!-- Agrega más categorías según sea necesario -->
   </select>
   <button type="submit" class="btn btn-primary">Filtrar</button>
 </form>
@@ -31,7 +33,14 @@
         <p class="card-text">{{this.category}}</p>
         <h5 class="card-title">{{this.title}}</h5>
         <h5 class="card-title">${{this.price}}.-</h5>
-        <a href="/products/{{this.id}}" class="btn btn-primary">Info</a>
+        <a href="/products/{{this.id}}" class="btn btn-primary">+ Info</a>
+
+        <!-- Botón de compra con campo para la cantidad -->
+        <form class="purchase-form" data-product-id="{{this.id}}">
+          <label for="quantity-{{this.id}}">Cantidad:</label>
+          <input type="number" id="quantity-{{this.id}}" name="quantity" min="1" value="1" required>
+          <button type="submit" class="btn btn-secondary mt-2">Comprar</button>
+        </form>
       </div>
     </div>
   {{/each}}
@@ -48,10 +57,7 @@
       </li>
     {{/if}}
     <li class="page-item active">
-      <a
-        class="page-link"
-        href="/products?page={{currentPage}}"
-      >{{currentPage}}</a>
+      <a class="page-link" href="/products?page={{currentPage}}">{{currentPage}}</a>
     </li>
     {{#if hasNextPage}}
       <li class="page-item">

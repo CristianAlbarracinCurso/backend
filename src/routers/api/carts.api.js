@@ -3,6 +3,7 @@ import {
   createCarts,
   getCartProducts,
   //addCartProducts,
+  totalCartsByUser,
   readAll,
   calculatePrice,
   updateCart,
@@ -14,6 +15,8 @@ const cartsApiRouter = Router();
 cartsApiRouter.post("/", createCarts);
 cartsApiRouter.get("/", readAll);
 cartsApiRouter.get("/:cid", getCartProducts);
+cartsApiRouter.get("/total/:uid", totalCartsByUser);
+cartsApiRouter.get("/details/:uid", readAll);
 //cartsApiRouter.post("/:cid/:pid/:quantity", addCartProducts);
 cartsApiRouter.put("/:cid", updateCart);
 cartsApiRouter.delete("/:cid", destroyCart);

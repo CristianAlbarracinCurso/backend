@@ -122,36 +122,35 @@ async function findByEmail(email) {
 
 async function loginUser(req, res, next) {
   try {
-    const { email, password } = req.body; // Obtener email y password del cuerpo de la solicitud
+    const { email, password } = req.body; 
     // Autenticar usuario por email
     const user = await usersMongoManager.findByEmail(email);
     // Verificar si el usuario existe y si la contraseña es correcta
     if (user && user.password === password) {
-      // Aquí puedes implementar la lógica de comparación de contraseñas (ej. usando bcrypt)
-      user.isOnline = true; // Cambiar el estado de `isOnline` a `true`
-      await usersMongoManager.update(user._id, { isOnline: true }); // Actualizar el estado en la base de datos
 
-      // Manejar la sesión del usuario
+      user.isOnline = true; 
+      await usersMongoManager.update(user._id, { isOnline: true }); 
+
+     
       req.session.isAuthenticated = true;
-      req.session.user = user; // Guardar información del usuario en la sesión
+      req.session.user = user; 
 
-      socketServer.emit("user logged in", { username: user.email }); // Emitir evento de usuario conectado
+      socketServer.emit("user logged in", { username: user.email }); 
 
       return res.status(200).json({
-        message: "USER LOGGED IN", // Mensaje de éxito
+        message: "USER LOGGED IN", 
         statusCode: 200,
-        response: user._id, // ID del usuario
+        response: user._id,
       });
     } else {
       return res.status(401).json({
-        // Código de estado 401 para credenciales incorrectas
         message: "Usuario o contraseña incorrectos.",
         statusCode: 401,
         success: false,
       });
     }
   } catch (error) {
-    return next(error); // Manejar cualquier error que ocurra
+    return next(error); 
   }
 }
 
